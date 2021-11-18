@@ -8,4 +8,16 @@ class Home extends BaseController
     {
         return view('welcome_message');
     }
+    public function template()
+    {
+        return view('admin/v_admin_template');
+    }
+    public function admin()
+    {
+        return view('admin/v_admin_index');
+    }
+    public function product()
+    {
+        return view('admin/v_admin_product');
+    }
 }
