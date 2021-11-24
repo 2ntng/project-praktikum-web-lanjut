@@ -38,7 +38,7 @@ $routes->get('/logout', 'Login::logout');
 // $routes->post('/register/save', 'Register::save');
 
 // Hasil merge routes nopri, bintang ke raymond
-$routes->get('/dashboard', 'Navigation::user',['filter' => 'auth']);
+$routes->get('/dashboard', 'Dashboard::index',['filter' => 'auth']);
 $routes->get('/template', 'Navigation::template');
 $routes->get('/user', 'Navigation::user');
 $routes->get('/product', 'Navigation::product');
