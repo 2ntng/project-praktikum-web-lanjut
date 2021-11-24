@@ -1,6 +1,5 @@
-<?= $this->extend('layout/headfoot'); ?>
+<?= $this->include('layout/header') ?>
 
-<?= $this->section('content'); ?>
 
 <?php $session = \Config\Services::session(); ?>
 <div class="flash-data" data-flashdata="<?= $session->get('msg') ?>"></div>
@@ -36,4 +35,7 @@
     </div>
   </div>
 </div>
-<?= $this->endSection(); ?>
+    <!-- content-wrapper ends -->
+    <script src="<?= base_url('sweetAlert\sweetalert2.all.min.js')?>"></script>
+    <script src="<?= base_url('sweetAlert\alert.js')?>"></script>
+    <?= $this->include('layout/footer') ?>

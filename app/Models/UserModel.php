@@ -34,8 +34,4 @@ class UserModel extends Model
     // protected $afterFind            = [];
     // protected $beforeDelete         = [];
     // protected $afterDelete          = [];
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 7326da7af64dce86e555ebe41a58439db47bbd9d

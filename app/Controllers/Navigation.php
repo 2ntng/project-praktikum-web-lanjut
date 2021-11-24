@@ -12,9 +12,25 @@ class Navigation extends BaseController
     {
         $this->userModel = new UserModel();
     }
-
-    public function productAdmin()
+    
+    // Routes dari raymond
+    public function template()
     {
-        return view('product/v_admin');
+        return view('user/v_template');
+    }
+
+    public function user()
+    {
+        return view('user/v_index');
+    }
+
+    public function product()
+    {
+        return view('user/v_product');
+    }
+    
+    public function add_product()
+    {
+        return view('user/v_add_product');
     }
 }
