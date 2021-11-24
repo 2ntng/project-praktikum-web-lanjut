@@ -31,24 +31,27 @@
                         <table class="table table-hover table-bordered" id="table1">
                             <thead>
                                 <tr>
+                                    <th scope="col">Nomor</th>
                                     <th scope="col">Nama Produk</th>
+                                    <th scope="col">Description</th>
                                     <th scope="col">Harga</th>
                                     <th scope="col">Stok</th>
-                                    <th scope="col">Status
+                                
                             </thead>
                             <tbody>
-                                <tr>
-                                    <th scope="row">Produk 1</th>
-                                    <td>Harga 1</td>
-                                    <td>Stok 1</td>
-                                    <td>Status 1</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">Produk 2</th>
-                                    <td>Harga 2</td>
-                                    <td>Stok 2</td>
-                                    <td>Status 2</td>
-                                </tr>
+                                <?php $no = 1;
+                                foreach ($product as $row) { ?>
+                                    <tr>
+                                        <th scope="row"><?= $no++; ?></th>
+                                        <td><?= $row['name']; ?></td>
+                                        <td><?= $row['description']; ?></td>
+                                        <td><?= $row['price']; ?></td>
+                                        <td><?= $row['supply']; ?></td>
+                                        
+                                    </tr>
+                                <?php
+                                }
+                                ?>
                             </tbody>
                         </table>
                     </div>

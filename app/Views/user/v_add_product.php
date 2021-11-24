@@ -13,52 +13,63 @@
                 </div>
             </div>
         </div>
-        <form action="">
-            <div class="row">
-                <div class="col-12 grid-margin">
-                    <div class="card my-3">
-                        <div class="card-body">
-                            <h4 class="card-title">Informasi Produk</h4>
-                            <p class="card-description">
-                                Cantumkan isi informasi dari produk
-                            </p>
-                            <div>
-                                <div class="form-group">
-                                    <label for="nama_produk">Nama Produk</label>
-                                    <input type="text" class="form-control" id="nama_produk" placeholder="Nama">
-                                </div>
-                            </div>
-                            <div>
-                                <div class="form-group">
-                                    <label for="harga_produk">Harga Produk</label>
-                                    <input type="text" class="form-control" id="harga_produk" placeholder="Harga Produk">
-                                </div>
-                            </div>
-                            <div>
-                                <div class="form-group">
-                                    <label for="stok_produk">Stok Produk</label>
-                                    <input type="text" class="form-control" id="stok_produk" placeholder="Harga Produk">
-                                </div>
-                            </div>
-                            <div>
-                                <div class="form-group">
-                                    <label for="status_produk">Status Produk</label>
-                                    <input type="text" class="form-control" id="harga_produk" placeholder="Harga Produk">
-                                </div>
+        <?php if (!empty(session()->getFlashdata('error'))) : ?>
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <h4>Periksa Entrian Form</h4>
+                </hr />
+                <?php echo session()->getFlashdata('error'); ?>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        <?php endif; ?>
+        <form method="post" action="<?= base_url('product/data') ?>">
+        <?= csrf_field(); ?>
+            <div class=" row">
+            <div class="col-12 grid-margin">
+                <div class="card my-3">
+                    <div class="card-body">
+                        <h4 class="card-title">Informasi Produk</h4>
+                        <p class="card-description">
+                            Cantumkan isi informasi dari produk
+                        </p>
+                        <div>
+                            <div class="form-group">
+                                <label for="name">Nama Produk</label>
+                                <input type="text" class="form-control" name="name" placeholder="Nama" value="<?= old('name'); ?>">
                             </div>
                         </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-body">
-                            <div>
-                                <button type="submit" class="btn btn-primary mr-2">Submit</button>
-                                <button class="btn btn-light">Cancel</button>
+                        <div>
+                            <div class="form-group">
+                                <label for="description">Harga Produk</label>
+                                <input type="text" class="form-control" name="description" placeholder="Harga Produk" value="<?= old('description'); ?>">
+                            </div>
+                        </div>
+                        <div>
+                            <div class="form-group">
+                                <label for="price">Harga Produk</label>
+                                <input type="text" class="form-control" name="price" placeholder="Harga Produk" value="<?= old('price'); ?>">
+                            </div>
+                        </div>
+                        <div>
+                            <div class="form-group">
+                                <label for="supply">Stok Produk</label>
+                                <input type="text" class="form-control" name="supply" placeholder="Stock Produk" value="<?= old('supply'); ?>">
                             </div>
                         </div>
                     </div>
                 </div>
+                <div class="card">
+                    <div class="card-body">
+                        <div>
+                            <button type="submit" value="Simpan" class="btn btn-primary mr-2">Submit</button>
+                            <button class="btn btn-light">Cancel</button>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </form>
+    </div>
+    </form>
     </div>
 
     <!-- Modal -->

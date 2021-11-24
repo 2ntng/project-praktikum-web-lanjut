@@ -2,29 +2,17 @@
 
 namespace App\Controllers;
 
-use App\Models\UserModel;
+use App\Controllers\BaseController;
 use App\Models\ProductModel;
 
-class Navigation extends BaseController
+class ProductController extends BaseController
 {
-
-    protected $userModel;
+    
     protected $product;
     public function __construct()
     {
-        $this->userModel = new UserModel();
         $this->product = new ProductModel();
-    }
-    
-    // Routes dari raymond
-    public function template()
-    {
-        return view('user/v_template');
-    }
-
-    public function user()
-    {
-        return view('user/v_index');
+        
     }
 
     public function product()
@@ -81,6 +69,6 @@ class Navigation extends BaseController
         session()->setFlashdata('message', 'Tambah Data Pasien Berhasil');
         $this->product->save($data);
         
-        return redirect()->to('/');
+        return redirect()->to('/product');
     }
 }

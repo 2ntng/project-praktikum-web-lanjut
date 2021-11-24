@@ -42,6 +42,7 @@ $routes->get('/dashboard', 'Dashboard::index',['filter' => 'auth']);
 $routes->get('/template', 'Navigation::template');
 $routes->get('/user', 'Navigation::user');
 $routes->get('/product', 'Navigation::product');
+$routes->post('/product/data', 'Navigation::data');
 $routes->get('/product/add', 'Navigation::add_product');
 // End - hasil merge routes nopri, bintang ke raymond
 
