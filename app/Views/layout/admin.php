@@ -70,7 +70,7 @@
                     </a>
                     <div class="collapse" id="auth">
                         <ul class="nav flex-column sub-menu">
-                            <li class="nav-item"> <a class="nav-link" href="/login"> Logout </a></li>
+                            <li class="nav-item"> <a class="nav-link" href="/logout"> Logout </a></li>
                             <li class="nav-item"> <a class="nav-link" href="/aktivasi"> Aktivasi </a></li>
                         </ul>
                     </div>

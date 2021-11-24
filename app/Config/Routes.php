@@ -31,15 +31,18 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Navigation::login');
-$routes->post('/registrasi-save', 'Navigation::saveRegistrasi');
-$routes->get('/product-admin', 'Navigation::productAdmin');
-$routes->get('/dashboard', 'Navigation::dashboard');
-$routes->post('/dashboard', 'Navigation::dashboard');
-$routes->get('/aktivasi', 'Navigation::aktivasi');
-$routes->post('/login', 'Navigation::login');
-$routes->get('/login', 'Navigation::login');
-$routes->get('/registrasi', 'Navigation::registrasi');
+$routes->get('/', 'Login::index');
+$routes->get('/login', 'Login::index');
+$routes->get('/logout', 'Login::logout');
+// $routes->get('/register', 'Register::index');
+// $routes->post('/register/save', 'Register::save');
+$routes->get('/dashboard', 'Dashboard::index',['filter' => 'auth']);
+
+// $routes->get('/', 'Navigation::login');
+// $routes->get('/dashboard', 'Navigation::dashboard');
+// $routes->post('/dashboard', 'Login::validasi');
+// $routes->post('/login', 'Navigation::login');
+// $routes->get('/login', 'Navigation::login');
 
 /*
  * --------------------------------------------------------------------
