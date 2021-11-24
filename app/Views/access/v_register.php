@@ -1,6 +1,4 @@
-<?= $this->extend('layout/headfoot'); ?>
-
-<?= $this->section('content'); ?>
+<?= $this->include('layout/header') ?>
 <?php $session = \Config\Services::session(); 
     if($session->get('msg') != null){
         ?>
@@ -59,4 +57,4 @@
     </div>
     <!-- page-body-wrapper ends -->
 </div>
-<?= $this->endSection(); ?>
+<?= $this->include('layout/footer') ?>
