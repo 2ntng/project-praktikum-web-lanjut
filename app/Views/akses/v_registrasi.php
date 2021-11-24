@@ -1,6 +1,8 @@
 <?= $this->extend('layout/headfoot'); ?>
 
 <?= $this->section('content'); ?>
+<?php $session = \Config\Services::session(); ?>
+<div class="flash-data" data-flashdata="<?= $session->get('flash') ?>"></div>
 <div class="container-scroller">
     <div class="container-fluid page-body-wrapper full-page-wrapper">
         <div class="content-wrapper d-flex align-items-center auth px-0">
@@ -14,19 +16,16 @@
                         <h6 class="font-weight-light">Ayo daftarkan diri kamu dengan mudah!</h6>
                         <form action="/registrasi-save" method="post">
                             <div class="form-group">
-                                <input type="text" name="fullname" class="form-control form-control-lg" name="fullname" placeholder="Fullname" required>
+                                <input type="text" class="form-control form-control-lg" name="fullname" placeholder="Fullname" required>
                             </div>
                             <div class="form-group">
-                                <input type="text" name="username" minLength="4" class="form-control form-control-lg" name="username" placeholder="Username" required>
+                                <input type="text" minLength="8" class="form-control form-control-lg" name="username" placeholder="Username" required>
                             </div>
                             <div class="form-group">
-                                <input type="password" name="password" minLength="4" class="form-control form-control-lg" name="password" placeholder="Password" required>
+                                <input type="password" minLength="8" class="form-control form-control-lg" name="password" placeholder="Password" required>
                             </div>
                             <div class="form-group">
-                                <select class="form-control" name="role" required>
-                                    <option value=0>Admin</option>
-                                    <option value=1>User</option>
-                                </select>
+                                <input type="email" class="form-control form-control-lg" name="email" placeholder="Email" required>
                             </div>
                             <div class="mb-4">
                                 <div class="form-check">
@@ -36,9 +35,7 @@
                                     </label>
                                 </div>
                             </div>
-                            <div class="text-left mt-4 font-weight-light">
-                                *Admin akan segera mengaktivasi akun kamu
-                            </div>
+
                             <div class="mt-3">
                                 <input type="submit" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" value="Sign Up">
                             </div>

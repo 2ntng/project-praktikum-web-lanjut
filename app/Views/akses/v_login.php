@@ -1,6 +1,8 @@
 <?= $this->extend('layout/headfoot'); ?>
 
 <?= $this->section('content'); ?>
+<?php $session = \Config\Services::session(); ?>
+<div class="flash-data" data-flashdata="<?= $session->get('flash') ?>"></div>
 <div class="container-scroller">
   <div class="container-fluid page-body-wrapper full-page-wrapper">
     <div class="content-wrapper d-flex align-items-center auth px-0">

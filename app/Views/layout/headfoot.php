@@ -50,6 +50,8 @@
     <script src="/js/todolist.js"></script>
     <!-- endinject -->
     <!-- Custom js for this page-->
+    <script src="sweetAlert\sweetalert2.all.min.js"></script>
+    <script src="sweetAlert\alert.js"></script>
     <script src="/js/dashboard.js"></script>
     <script src="/js/Chart.roundedBarCharts.js"></script>
     <!-- End custom js for this page-->
