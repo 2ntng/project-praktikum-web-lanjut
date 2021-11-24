@@ -14,18 +14,18 @@
                         <h6 class="font-weight-light">Ayo daftarkan diri kamu dengan mudah!</h6>
                         <form action="/registrasi-save" method="post">
                             <div class="form-group">
-                                <input type="text" name="nama" class="form-control form-control-lg" name="nama" placeholder="Nama" required>
+                                <input type="text" name="fullname" class="form-control form-control-lg" name="fullname" placeholder="Fullname" required>
                             </div>
                             <div class="form-group">
-                                <input type="text" name="username" minLength="8" class="form-control form-control-lg" name="username" placeholder="Username" required>
+                                <input type="text" name="username" minLength="4" class="form-control form-control-lg" name="username" placeholder="Username" required>
                             </div>
                             <div class="form-group">
-                                <input type="password" name="password" minLength="8" class="form-control form-control-lg" name="password" placeholder="Password" required>
+                                <input type="password" name="password" minLength="4" class="form-control form-control-lg" name="password" placeholder="Password" required>
                             </div>
                             <div class="form-group">
-                                <select class="form-control" name="tingkat" required>
-                                    <option>Admin</option>
-                                    <option>User</option>
+                                <select class="form-control" name="role" required>
+                                    <option value=0>Admin</option>
+                                    <option value=1>User</option>
                                 </select>
                             </div>
                             <div class="mb-4">

@@ -2,14 +2,14 @@
 
 namespace App\Controllers;
 
-use App\Models\PenggunaModel;
+use App\Models\UserModel;
 
 class Navigation extends BaseController
 {
-    protected $penggunaModel;
+    protected $userModel;
     public function __construct()
     {
-        $this->penggunaModel = new PenggunaModel();
+        $this->userModel = new UserModel();
     }
     public function dashboard()
     {
@@ -18,49 +18,43 @@ class Navigation extends BaseController
         $password = $this->request->getVar('password');
 
         //check ada username yang sama ga
-        $user = $this->penggunaModel->findAll();
+        $user = $this->userModel->findAll();
         foreach ($user as $user) {
             if ($user['username'] == $username) {
                 $valid = 1;
             };
         };
         if ($valid == 0) {
-            echo "username tidak terdaftar";
+            echo "Username not found!";
             return view('akses/v_login');
         }
 
-        $user = $this->penggunaModel->where('username', $username)->findAll();
-        $tingkat = $user[0]['tingkat'];
-        $status = $user[0]['status'];
-        $sandi = $user[0]['password'];
+        $a_username = $this->userModel->where('username', $username)->findAll();
+        $role = $a_username[0]['role'];
+        $a_password = $a_username[0]['password'];
 
         //memeriksa password
-        if ($sandi != $password) {
+        if ($a_password != $password) {
             echo "Password salah!";
             return view('akses/v_login');
         }
 
-        //memeriksa status
-        if ($status == "activated") {
-            if ($tingkat == "admin") {
-                return view('dashboard/v_dashAdmin');
-            } else {
-                return view('dashboard/v_dashUser');
-            }
+        // memeriksa role
+        if ($role == 0) {
+            return view('dashboard/v_dashAdmin');
         } else {
-            echo "Akun Belum Aktif";
-            return view('akses/v_login');
+            return view('dashboard/v_dashUser');
         }
     }
     public function saveRegistrasi()
     {
         $valid = 0;
-        $nama = $this->request->getVar('nama');
+        $fullname = $this->request->getVar('fullname');
         $username = $this->request->getVar('username');
         $password = $this->request->getVar('password');
-        $tingkat = $this->request->getVar('tingkat');
+        $role = $this->request->getVar('role');
 
-        $user = $this->penggunaModel->findAll();
+        $user = $this->userModel->findAll();
         foreach ($user as $user) {
             if ($user['username'] == $username) {
                 $valid = 1;
@@ -71,11 +65,11 @@ class Navigation extends BaseController
             return view('akses/v_registrasi');
         }
 
-        $this->penggunaModel->save([
-            'nama' => $nama,
+        $this->userModel->save([
+            'fullname' => $fullname,
             'username' => $username,
             'password' => $password,
-            'tingkat' => $tingkat
+            'role' => $role
         ]);
 
         echo "Akunmu segera diaktivasi oleh pihak Admin.";
@@ -96,7 +90,7 @@ class Navigation extends BaseController
     public function aktivasi()
     {
         $data = [
-            'user' => $this->penggunaModel->findAll()
+            'user' => $this->userModel->findAll()
         ];
         return view('akses/v_aktivasi', $data);
     }

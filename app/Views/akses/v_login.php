@@ -14,10 +14,10 @@
             <h6 class="font-weight-light">Sign in to continue.</h6>
             <form action="/dashboard" method="post">
               <div class="form-group">
-                <input name="username" type="text" minLength="8" class="form-control form-control-lg" id="exampleInputEmail1" placeholder="Username" required>
+                <input name="username" type="text" minLength="4" class="form-control form-control-lg" id="exampleInputEmail1" placeholder="Username" required>
               </div>
               <div class="form-group">
-                <input name="password" type="password" minLength="8" class="form-control form-control-lg" id="exampleInputPassword1" placeholder="Password" required>
+                <input name="password" type="password" minLength="4" class="form-control form-control-lg" id="exampleInputPassword1" placeholder="Password" required>
               </div>
               <div class="mt-3">
                 <input type="submit" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" value="Sign In">

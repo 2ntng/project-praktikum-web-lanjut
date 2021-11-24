@@ -31,6 +31,22 @@ class User extends Migration
 				'type'				=> 'VARCHAR',
 				'constraint'		=> 100
 			],
+			'role'			=> [
+				'type'				=> 'INT',
+				'constraint'		=> 2,
+			],
+			'created_at'			=> [
+				'type'				=> 'TIMESTAMP',
+				'null'				=> true
+			],
+			'updated_at'			=> [
+				'type'				=> 'TIMESTAMP',
+				'null'				=> true
+			],
+			'deleted_at'			=> [
+				'type'				=> 'TIMESTAMP',
+				'null'				=> true
+			],
 		]);
 		$this->forge->addKey('user_id', true);
 		$this->forge->createTable('user');
