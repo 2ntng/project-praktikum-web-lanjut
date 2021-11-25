@@ -41,9 +41,9 @@ $routes->get('/logout', 'Login::logout');
 $routes->get('/dashboard', 'Dashboard::index',['filter' => 'auth']);
 $routes->get('/template', 'Navigation::template');
 $routes->get('/user', 'Navigation::user');
-$routes->get('/product', 'Navigation::product');
-$routes->post('/product/data', 'Navigation::data');
-$routes->get('/product/add', 'Navigation::add_product');
+$routes->get('/product', 'ProductController::product');
+$routes->post('/product/data', 'ProductController::data');
+$routes->get('/product/add', 'ProductController::add_product');
 // End - hasil merge routes nopri, bintang ke raymond
 
 // $routes->get('/', 'Navigation::login');
