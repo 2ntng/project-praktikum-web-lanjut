@@ -36,18 +36,23 @@
                                     <th scope="col">Description</th>
                                     <th scope="col">Harga</th>
                                     <th scope="col">Stok</th>
+                                    <th scope="col">Aksi</th>
                                 
                             </thead>
                             <tbody>
                                 <?php $no = 1;
                                 foreach ($product as $row) { ?>
                                     <tr>
-                                        <th scope="row"><?= $no++; ?></th>
+                                        <th scope="row"><p><?= $no++; ?></p></th>
                                         <td><?= $row['name']; ?></td>
                                         <td><?= $row['description']; ?></td>
                                         <td><?= $row['price']; ?></td>
                                         <td><?= $row['supply']; ?></td>
-                                        
+                                        <td>
+                                            <button type="button" class="btn btn-primary">Detail</button>
+                                            <button type="button" class="btn btn-warning">Edit Data</button>
+                                            <button type="button" class="btn btn-danger">Hapus Data</button>
+                                        </td>
                                     </tr>
                                 <?php
                                 }

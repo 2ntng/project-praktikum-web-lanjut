@@ -71,4 +71,8 @@ class ProductController extends BaseController
         
         return redirect()->to('/product');
     }
+    public function edit_product()
+    {
+        return view('user/v_edit_product');
+    }
 }

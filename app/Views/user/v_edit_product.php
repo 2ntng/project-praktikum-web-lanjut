@@ -7,8 +7,8 @@
             <div class="col-md-12 grid-margin">
                 <div class="row">
                     <div class="col-12 col-xl-8 mb-4 mb-xl-0">
-                        <h3 class="font-weight-bold">Add Produk
-                            <h6 class="font-weight-normal mb-0">Halaman menambah produk </h6>
+                        <h3 class="font-weight-bold">Edit Produk
+                            <h6 class="font-weight-normal mb-0">Halaman edit informasi produk </h6>
                     </div>
                 </div>
             </div>
@@ -74,8 +74,8 @@
                     <div class="card">
                         <div class="card-body">
                             <div>
-                                <button type="submit" value="Simpan" class="btn btn-primary mr-2">Submit</button>
-                                <button class="btn btn-light">Cancel</button>
+                                <button type="submit" value="Simpan" class="btn btn-primary mr-2">Ubah</button>
+                                <button class="btn btn-light">Batal</button>
                             </div>
                         </div>
                     </div>

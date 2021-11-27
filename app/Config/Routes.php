@@ -44,6 +44,7 @@ $routes->get('/user', 'Navigation::user');
 $routes->get('/product', 'ProductController::product');
 $routes->post('/product/data', 'ProductController::data');
 $routes->get('/product/add', 'ProductController::add_product');
+$routes->get('/product/edit', 'ProductController::edit_product');
 // End - hasil merge routes nopri, bintang ke raymond
 
 // $routes->get('/', 'Navigation::login');
