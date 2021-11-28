@@ -6,7 +6,7 @@
         <a href="/add-admin">
             <button type="button" class="btn btn-info">
                 <i class="mdi mdi-account-plus"></i>
-                Tambah Admin
+                Add admin
             </button>
         </a>
         <br> <br>
