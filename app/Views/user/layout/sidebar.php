@@ -9,7 +9,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/user">
+                        <a class="nav-link" href="/dashboard">
                             <i class="mdi mdi-view-grid"></i>
                             <span class="menu-title"> Dashboard</span>
                         </a>

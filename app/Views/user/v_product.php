@@ -1,8 +1,8 @@
-<?= $this->include('layout/header') ?>
+<?= $this->include('user/layout/header') ?>
 <link rel="stylesheet" href="<?= base_url('vendors/simple-datatables/style.css') ?>">
 
-<?= $this->include('layout/navbar') ?>
-<?= $this->include('layout/sidebar') ?>
+<?= $this->include('user/layout/navbar') ?>
+<?= $this->include('user/layout/sidebar') ?>
 <div class="main-panel">
     <div class="content-wrapper">
         <div class="row">
@@ -99,11 +99,11 @@
     </section>
 
     <!-- content-wrapper ends -->
-    <?= $this->include('layout/footer_comment') ?>
+    <?= $this->include('user/layout/footer_comment') ?>
     <script src="<?= base_url('vendors/simple-datatables/simple-datatables.js') ?>"></script>
 	<script>
 		// Simple Datatable
 		let table1 = document.querySelector('#table1');
 		let dataTable = new simpleDatatables.DataTable(table1);
 	</script>
-    <?= $this->include('layout/footer') ?>
+    <?= $this->include('user/layout/footer') ?>

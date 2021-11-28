@@ -1,6 +1,6 @@
-<?= $this->include('layout/header') ?>
-<?= $this->include('layout/navbar') ?>
-<?= $this->include('layout/sidebar') ?>
+<?= $this->include('user/layout/header') ?>
+<?= $this->include('user/layout/navbar') ?>
+<?= $this->include('user/layout/sidebar') ?>
 <div class="main-panel">
     <div class="content-wrapper">
         <div class="row">
@@ -84,5 +84,5 @@
         </form>
     </div>
     <!-- content-wrapper ends -->
-    <?= $this->include('layout/footer_comment') ?>
-    <?= $this->include('layout/footer') ?>
+    <?= $this->include('user/layout/footer_comment') ?>
+    <?= $this->include('user/layout/footer') ?>

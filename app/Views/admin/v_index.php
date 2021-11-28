@@ -1,6 +1,6 @@
-<?= $this->include('admin_layout/header') ?>
-<?= $this->include('admin_layout/navbar') ?>
-<?= $this->include('admin_layout/sidebar') ?>
+<?= $this->include('admin/layout/header') ?>
+<?= $this->include('admin/layout/navbar') ?>
+<?= $this->include('admin/layout/sidebar') ?>
 <?php $session = session(); ?>            
             <div class="main-panel">
                 <div class="content-wrapper">
@@ -277,8 +277,8 @@
                     </div>
                 </div>
                 <!-- content-wrapper ends -->
-<?= $this->include('admin_layout/footer_comment') ?>
+<?= $this->include('admin/layout/footer_comment') ?>
     <!-- Plugin js for this page -->
     <script src="<?= base_url('vendors/chart.js/Chart.min.js')?>"></script>
     <!-- End plugin js for this page -->
-<?= $this->include('admin_layout/footer') ?>
+<?= $this->include('admin/layout/footer') ?>
