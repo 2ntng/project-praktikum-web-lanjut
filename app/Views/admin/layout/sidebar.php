@@ -8,6 +8,12 @@
                             <span class="menu-title"> Dashboard</span>
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/management">
+                            <i class="mdi mdi-account-multiple"></i>
+                            <span class="menu-title"> User Management</span>
+                        </a>
+                    </li>
                 </ul>
             </nav>
             <!-- partial -->

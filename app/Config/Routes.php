@@ -31,20 +31,22 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Dashboard::index',['filter' => 'auth']);
+$routes->get('/', 'Dashboard::index', ['filter' => 'auth']);
 $routes->get('/login', 'Login::index');
 $routes->get('/logout', 'Login::logout');
 // $routes->get('/register', 'Register::index');
 // $routes->post('/register/save', 'Register::save');
 
 // Hasil merge routes nopri, bintang ke raymond
-$routes->get('/dashboard', 'Dashboard::index',['filter' => 'auth']);
-$routes->get('/template', 'Navigation::template',['filter' => 'auth']);
+$routes->get('/dashboard', 'Dashboard::index', ['filter' => 'auth']);
+$routes->get('/template', 'Navigation::template', ['filter' => 'auth']);
+$routes->get('/Management', 'Management::index', ['filter' => 'auth']);
+$routes->get('/add-admin', 'Management::add', ['filter' => 'auth']);
 // $routes->get('/user', 'Navigation::user');
-$routes->get('/product', 'ProductController::product',['filter' => 'auth']);
-$routes->post('/product/data', 'ProductController::data',['filter' => 'auth']);
-$routes->get('/product/add', 'ProductController::add_product',['filter' => 'auth']);
-$routes->get('/product/edit', 'ProductController::edit_product',['filter' => 'auth']);
+$routes->get('/product', 'ProductController::product', ['filter' => 'auth']);
+$routes->post('/product/data', 'ProductController::data', ['filter' => 'auth']);
+$routes->get('/product/add', 'ProductController::add_product', ['filter' => 'auth']);
+$routes->get('/product/edit', 'ProductController::edit_product', ['filter' => 'auth']);
 // End - hasil merge routes nopri, bintang ke raymond
 
 // $routes->get('/', 'Navigation::login');
