@@ -15,21 +15,45 @@ class Product extends Migration
 				'unsigned'			=> true,
 				'auto_increment'	=> true
 			],
+			'user_id'				=> [
+				'type'				=> 'INT',
+				'constraint'		=> 10,
+				'unsigned'			=> true,
+			],
+			'category_id'				=> [
+				'type'				=> 'INT',
+				'constraint'		=> 10,
+				'unsigned'			=> true
+			],
 			'name'			=> [
 				'type'				=> 'VARCHAR',
 				'constraint'		=> 100
 			],
 			'description'			=> [
 				'type'				=> 'VARCHAR',
-				'constraint'		=> 100
+				'constraint'		=> 256
 			],
             'price'			=> [
-				'type'				=> 'VARCHAR',
-				'constraint'		=> 100
+				'type'				=> 'INT',
+				'constraint'		=> 64,
+				'unsigned'			=> true
 			],
-			'supply'			=> [
-				'type'				=> 'VARCHAR',
-				'constraint'		=> 100
+			'stock'			=> [
+				'type'				=> 'INT',
+				'constraint'		=> 64,
+				'unsigned'			=> true
+			],
+			'created_at'			=> [
+				'type'				=> 'TIMESTAMP',
+				'null'				=> true
+			],
+			'updated_at'			=> [
+				'type'				=> 'TIMESTAMP',
+				'null'				=> true
+			],
+			'deleted_at'			=> [
+				'type'				=> 'TIMESTAMP',
+				'null'				=> true
 			],
 		]);
 		$this->forge->addKey('product_id', true);

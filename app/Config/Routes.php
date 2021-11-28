@@ -39,14 +39,19 @@ $routes->get('/logout', 'Login::logout');
 
 // Hasil merge routes nopri, bintang ke raymond
 $routes->get('/dashboard', 'Dashboard::index', ['filter' => 'auth']);
-$routes->get('/template', 'Navigation::template', ['filter' => 'auth']);
-$routes->get('/Management', 'Management::index', ['filter' => 'auth']);
-$routes->get('/add-admin', 'Management::add', ['filter' => 'auth']);
-// $routes->get('/user', 'Navigation::user');
-$routes->get('/product', 'ProductController::product', ['filter' => 'auth']);
-$routes->post('/product/data', 'ProductController::data', ['filter' => 'auth']);
-$routes->get('/product/add', 'ProductController::add_product', ['filter' => 'auth']);
-$routes->get('/product/edit', 'ProductController::edit_product', ['filter' => 'auth']);
+
+//Admin Routes
+$routes->get('/acc-management', 'AccountManagement::index', ['filter' => 'admin']);
+$routes->get('/add-admin', 'AccountManagement::add', ['filter' => 'admin']);
+
+//User Routes
+$routes->get('/template', 'Navigation::template', ['filter' => 'user']);
+$routes->get('/product', 'ProductController::product', ['filter' => 'user']);
+$routes->get('/product/add', 'ProductController::add_product', ['filter' => 'user']);
+$routes->post('/product/save-new', 'ProductController::save_new', ['filter' => 'user']);
+$routes->get('/product/edit/(:num)', 'ProductController::edit_product/$1', ['filter' => 'user']);
+$routes->post('/product/save-edit/(:num)', 'ProductController::save_edit/$1', ['filter' => 'user']);
+$routes->get('/product/delete/(:num)', 'ProductController::delete_product/$1', ['filter' => 'user']);
 // End - hasil merge routes nopri, bintang ke raymond
 
 // $routes->get('/', 'Navigation::login');

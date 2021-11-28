@@ -29,8 +29,7 @@
                             <div class="brand-logo">
                                 <img src="assets/gasskeun.png" alt="logo">
                             </div>
-                            <h4>Baru disini?</h4>
-                            <h6 class="font-weight-light">Ayo daftarkan diri kamu dengan mudah!</h6>
+                            <h3>Create Account</h3>
                             <form action="/register/save" method="post">
                                 <div class="form-group">
                                     <input type="text" class="form-control form-control-lg" name="fullname" placeholder="Fullname" required>
@@ -42,20 +41,11 @@
                                     <input type="password" minLength="4" class="form-control form-control-lg" name="password" placeholder="Password" required>
                                 </div>
                                 <div class="form-group">
-                                    <input type="password" minLength="4" class="form-control form-control-lg" name="confpassword" placeholder="Confirm Password" required>
+                                    <input type="password" minLength="4" class="form-control form-control-lg" name="confpassword" placeholder="Re-enter password" required>
                                 </div>
                                 <div class="form-group">
                                     <input type="email" class="form-control form-control-lg" name="email" placeholder="Email" required>
                                 </div>
-                                <div class="mb-4">
-                                    <div class="form-check">
-                                        <label class="form-check-label text-muted">
-                                            <input type="checkbox" class="form-check-input" required>
-                                            Data yang dimasukkan sudah benar
-                                        </label>
-                                    </div>
-                                </div>
-
                                 <div class="mt-3">
                                     <input type="submit" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" value="Sign Up">
                                 </div>

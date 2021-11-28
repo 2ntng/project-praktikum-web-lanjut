@@ -3,6 +3,7 @@
 namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
+use CodeIgniter\I18n\Time;
 
 class User extends Migration
 {
@@ -57,7 +58,9 @@ class User extends Migration
             'password' => password_hash('admin', PASSWORD_DEFAULT),
             'fullname' => 'Super Admin',
             'email' => 'gasskeun@gmail.com',
-            'role' => '0'
+            'role' => '0',
+			'created_at' => new Time('now'),
+			'updated_at' => new Time('now')
         ];
         $this->db->table('user')->insert($data);
     }

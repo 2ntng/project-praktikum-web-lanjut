@@ -9,34 +9,28 @@
             <div class="col-md-12 grid-margin">
                 <div class="row">
                     <div class="col-12 col-xl-8 mb-4 mb-xl-0">
-                        <h3 class="font-weight-bold">Produk
-                            <h6 class="font-weight-normal mb-0">Halaman daftar produk </h6>
+                        <h3 class="font-weight-bold">My Product</h3>
                     </div>
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-md-12 grid-margin">
-                <div class="card mb-5">
-                    <div class="card-body">
-                        <p class="card-title">Tambah Produk</p>
-                        <div class="mt-3 d-flex justify-content-start">
-                            <a class ="btn btn-warning btn-icon-text"href="/product/add"><i class="ti-plus btn-icon-prepend"></i>Tambah</a>
-                        </div>
-                    </div>
-                </div>
                 <div class="card">
                     <div class="card-body">
-                        <p class="card-title">Daftar Produk</p>
+                        <p class="card-title">Product List</p>
+                        <div class="mt-3 d-flex justify-content-start">
+                            <a class ="btn btn-warning btn-icon-text"href="/product/add"><i class="ti-plus btn-icon-prepend"></i>Add Product</a>
+                        </div>
                         <table class="table table-hover table-bordered" id="table1">
                             <thead>
                                 <tr>
-                                    <th scope="col">Nomor</th>
-                                    <th scope="col">Nama Produk</th>
-                                    <th scope="col">Description</th>
-                                    <th scope="col">Harga</th>
-                                    <th scope="col">Stok</th>
-                                    <th scope="col">Aksi</th>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Name</th>
+                                    <!-- <th scope="col">Description</th> -->
+                                    <th scope="col">Price</th>
+                                    <th scope="col">Stock</th>
+                                    <th scope="col">Action</th>
                                 
                             </thead>
                             <tbody>
@@ -45,13 +39,13 @@
                                     <tr>
                                         <th scope="row"><p><?= $no++; ?></p></th>
                                         <td><?= $row['name']; ?></td>
-                                        <td><?= $row['description']; ?></td>
-                                        <td><?= $row['price']; ?></td>
-                                        <td><?= $row['supply']; ?></td>
+                                        <!-- <td><= $row['description']; ?></td> -->
+                                        <td>Rp. <?= $row['price']; ?></td>
+                                        <td><?= $row['stock']; ?></td>
                                         <td>
-                                            <button type="button" class="btn btn-primary">Detail</button>
-                                            <button type="button" class="btn btn-warning">Edit Data</button>
-                                            <button type="button" class="btn btn-danger">Hapus Data</button>
+                                            <a href=""><button type="button" class="btn btn-icon btn-primary" title="Details"><i class="ti-info btn-icon-prepend"></i></button></a>
+                                            <a href="/product/edit/<?= $row['product_id'] ?>"><button type="button" class="btn btn-icon btn-warning" title="Edit"><i class="ti-pencil btn-icon-prepend"></i></button></a>
+                                            <a href="/product/delete/<?= $row['product_id'] ?>"><button type="button" class="btn btn-icon btn-danger" title="Delete"><i class="ti-trash btn-icon-prepend"></i></button></a>
                                         </td>
                                     </tr>
                                 <?php

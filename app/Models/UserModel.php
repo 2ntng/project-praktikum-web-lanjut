@@ -10,7 +10,8 @@ class UserModel extends Model
     protected $primaryKey           = 'user_id';
     protected $useAutoIncrement     = true;
     protected $allowedFields        = ['username', 'password', 'fullname', 'email', 'role', 'created_at', 'updated_at', 'deleted_at'];
-
+    protected $useSoftDeletes       = true;
+    
     // Dates
     protected $useTimestamps        = true;
     protected $dateFormat           = 'datetime';

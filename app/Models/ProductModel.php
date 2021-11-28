@@ -9,23 +9,23 @@ class ProductModel extends Model
     protected $table                = 'product';
     protected $primaryKey           = 'product_id';
     protected $useAutoIncrement     = true;
-    protected $allowedFields        = ['name', 'description', 'price', 'supply'];
+    protected $allowedFields        = ['user_id', 'category_id', 'name', 'description', 'price', 'stock', 'created_at', 'updated_at', 'deleted_at'];
     // protected $DBGroup              = 'default';
     // protected $table                = 'product';
     // protected $primaryKey           = 'product_id';
     // protected $useAutoIncrement     = true;
     // protected $insertID             = 0;
     // protected $returnType           = 'array';
-    // protected $useSoftDeletes       = false;
+    protected $useSoftDeletes       = true;
     // protected $protectFields        = true;
     // protected $allowedFields        = ['name', 'name', 'description', 'price', 'supply'];
 
     // // Dates
-    // protected $useTimestamps        = false;
-    // protected $dateFormat           = 'datetime';
-    // protected $createdField         = 'created_at';
-    // protected $updatedField         = 'updated_at';
-    // protected $deletedField         = 'deleted_at';
+    protected $useTimestamps        = true;
+    protected $dateFormat           = 'datetime';
+    protected $createdField         = 'created_at';
+    protected $updatedField         = 'updated_at';
+    protected $deletedField         = 'deleted_at';
 
     // // Validation
     // protected $validationRules      = [];
