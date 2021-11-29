@@ -31,19 +31,27 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Login::index');
+$routes->get('/', 'Dashboard::index', ['filter' => 'auth']);
 $routes->get('/login', 'Login::index');
 $routes->get('/logout', 'Login::logout');
 // $routes->get('/register', 'Register::index');
 // $routes->post('/register/save', 'Register::save');
 
 // Hasil merge routes nopri, bintang ke raymond
-$routes->get('/dashboard', 'Dashboard::index',['filter' => 'auth']);
-$routes->get('/template', 'Navigation::template');
-$routes->get('/user', 'Navigation::user');
-$routes->get('/product', 'Navigation::product');
-$routes->post('/product/data', 'Navigation::data');
-$routes->get('/product/add', 'Navigation::add_product');
+$routes->get('/dashboard', 'Dashboard::index', ['filter' => 'auth']);
+
+//Admin Routes
+$routes->get('/acc-management', 'AccountManagement::index', ['filter' => 'admin']);
+$routes->get('/add-admin', 'AccountManagement::add', ['filter' => 'admin']);
+
+//User Routes
+$routes->get('/template', 'Navigation::template', ['filter' => 'user']);
+$routes->get('/product', 'ProductController::product', ['filter' => 'user']);
+$routes->get('/product/add', 'ProductController::add_product', ['filter' => 'user']);
+$routes->post('/product/save-new', 'ProductController::save_new', ['filter' => 'user']);
+$routes->get('/product/edit/(:num)', 'ProductController::edit_product/$1', ['filter' => 'user']);
+$routes->post('/product/save-edit/(:num)', 'ProductController::save_edit/$1', ['filter' => 'user']);
+$routes->get('/product/delete/(:num)', 'ProductController::delete_product/$1', ['filter' => 'user']);
 // End - hasil merge routes nopri, bintang ke raymond
 
 // $routes->get('/', 'Navigation::login');

@@ -8,7 +8,7 @@ class Dashboard extends Controller
     {
         $session = session();
         if ($session->get('role') == 0) {
-            return view('admin/v_admin_index');
+            return view('admin/v_index');
         } else {
             return view('user/v_index');
         }

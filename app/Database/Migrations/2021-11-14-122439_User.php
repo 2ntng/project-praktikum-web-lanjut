@@ -3,6 +3,7 @@
 namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
+use CodeIgniter\I18n\Time;
 
 class User extends Migration
 {
@@ -50,6 +51,18 @@ class User extends Migration
 		]);
 		$this->forge->addKey('user_id', true);
 		$this->forge->createTable('user');
+
+		// Insert Super Admin Data
+		$data = [
+			'username' => 'admin',
+			'password' => password_hash('admin', PASSWORD_DEFAULT),
+			'fullname' => 'Super Admin',
+			'email' => 'gasskeun@gmail.com',
+			'role' => '0',
+			'created_at' => new Time('now'),
+			'updated_at' => new Time('now')
+		];
+		$this->db->table('user')->insert($data);
 	}
 
 	public function down()

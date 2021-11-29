@@ -27,7 +27,7 @@ class OrderDetails extends Migration
         ],
         'total'			=> [
           'type'				=> 'INT',
-          'constraint'		=> 16,
+          'constraint'		=> 64,
           'unsigned'			=> true,
         ],
         'created_at'			=> [

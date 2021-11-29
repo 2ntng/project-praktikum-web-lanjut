@@ -22,12 +22,12 @@ class PaymentDetails extends Migration
       ],
       'amount'			=> [
         'type'				=> 'INT',
-        'constraint'		=> 16,
+        'constraint'		=> 64,
         'unsigned'			=> true,
       ],
       'status'			=> [
-				'type'				=> 'VARCHAR',
-				'constraint'		=> 16
+				'type'				=> 'INT',
+				'constraint'		=> 2
 			],
       'created_at'			=> [
         'type'				=> 'TIMESTAMP',

@@ -1,6 +1,6 @@
-<?= $this->include('user/layout/header') ?>
-<?= $this->include('user/layout/navbar') ?>
-<?= $this->include('user/layout/sidebar') ?>
+<?= $this->include('admin/layout/header') ?>
+<?= $this->include('admin/layout/navbar') ?>
+<?= $this->include('admin/layout/sidebar') ?>
 <?php $session = session(); ?>            
             <div class="main-panel">
                 <div class="content-wrapper">
@@ -8,7 +8,7 @@
                         <div class="col-md-12 grid-margin">
                             <div class="row">
                                 <div class="col-12 col-xl-8 mb-4 mb-xl-0">
-                                    <h3 class="font-weight-bold">Welcome, <?= $session->get('fullname'); ?> (User)</h3>
+                                    <h3 class="font-weight-bold">Welcome, <?= $session->get('fullname'); ?> (Admin)</h3>
                                     <!-- <h6 class="font-weight-normal mb-0">All systems are running smoothly! You have <span class="text-primary">3 unread alerts!</span></h6> -->
                                 </div>
                                 <div class="col-12 col-xl-4">
@@ -277,8 +277,8 @@
                     </div>
                 </div>
                 <!-- content-wrapper ends -->
-<?= $this->include('user/layout/footer_comment') ?>
+<?= $this->include('admin/layout/footer_comment') ?>
     <!-- Plugin js for this page -->
     <script src="<?= base_url('vendors/chart.js/Chart.min.js')?>"></script>
     <!-- End plugin js for this page -->
-<?= $this->include('user/layout/footer') ?>
+<?= $this->include('admin/layout/footer') ?>

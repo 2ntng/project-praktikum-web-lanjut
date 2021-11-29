@@ -32,7 +32,7 @@ class OrderItems extends Migration
       ],
       'price'			=> [
         'type'				=> 'INT',
-        'constraint'		=> 16,
+        'constraint'		=> 64,
         'unsigned'			=> true,
       ],
     ]);

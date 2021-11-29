@@ -47,7 +47,6 @@ class Register extends BaseController
         }else{
             $validation = $this->validator;
             $session->setFlashdata('msg', $validation->listErrors());
-            return redirect()->to('register');
         }
          
     }
