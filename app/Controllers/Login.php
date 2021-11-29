@@ -10,8 +10,8 @@ class Login extends BaseController
     {
         helper(['form']);
         echo view('access/v_login');
-    } 
-  
+    }
+
     public function auth()
     {
         $session = session();
@@ -19,10 +19,10 @@ class Login extends BaseController
         $username = $this->request->getVar('username');
         $password = $this->request->getVar('password');
         $data = $model->where('username', $username)->first();
-        if($data){
+        if ($data) {
             $pass = $data['password'];
             $verify_pass = password_verify($password, $pass);
-            if($verify_pass){
+            if ($verify_pass) {
                 $ses_data = [
                     'user_id'      => $data['user_id'],
                     'username'     => $data['username'],
@@ -33,21 +33,20 @@ class Login extends BaseController
                 ];
                 $session->set($ses_data);
                 return redirect()->to('/dashboard');
-            }else{
+            } else {
                 $session->setFlashdata('msg', 'wrongPassword');
                 return redirect()->to('/login');
             }
-        }else{
+        } else {
             $session->setFlashdata('msg', 'usernameNotFound');
             return redirect()->to('/login');
         }
     }
-  
+
     public function logout()
     {
         $session = session();
         $session->destroy();
         return redirect()->to('/login');
     }
-
 }

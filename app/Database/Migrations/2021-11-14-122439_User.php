@@ -6,9 +6,9 @@ use CodeIgniter\Database\Migration;
 
 class User extends Migration
 {
-    public function up()
-    {
-        $this->forge->addField([
+	public function up()
+	{
+		$this->forge->addField([
 			'user_id'				=> [
 				'type'				=> 'INT',
 				'constraint'		=> 10,
@@ -23,7 +23,7 @@ class User extends Migration
 				'type'				=> 'VARCHAR',
 				'constraint'		=> 100
 			],
-            'fullname'			=> [
+			'fullname'			=> [
 				'type'				=> 'VARCHAR',
 				'constraint'		=> 100
 			],
@@ -50,10 +50,10 @@ class User extends Migration
 		]);
 		$this->forge->addKey('user_id', true);
 		$this->forge->createTable('user');
-    }
+	}
 
-    public function down()
-    {
+	public function down()
+	{
 		$this->forge->dropTable('user');
-    }
+	}
 }
