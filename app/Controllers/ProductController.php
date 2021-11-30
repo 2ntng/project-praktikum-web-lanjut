@@ -7,12 +7,11 @@ use App\Models\ProductModel;
 
 class ProductController extends BaseController
 {
-    
+
     protected $product;
     public function __construct()
     {
         $this->product = new ProductModel();
-        
     }
     public function product()
     {
@@ -27,7 +26,7 @@ class ProductController extends BaseController
     public function edit_product($product_id)
     {
         $data = $this->product->find($product_id);
-        if($data['user_id'] != session()->get('user_id')){
+        if ($data['user_id'] != session()->get('user_id')) {
             return redirect()->to('/product');
         }
         return view('user/product/v_edit', $data);
@@ -35,7 +34,7 @@ class ProductController extends BaseController
     public function delete_product($product_id)
     {
         $data = $this->product->find($product_id);
-        if($data['user_id'] == session()->get('user_id')){
+        if ($data['user_id'] == session()->get('user_id')) {
             $this->product->delete($product_id);
         }
         return redirect()->to('/product');
@@ -73,8 +72,8 @@ class ProductController extends BaseController
                     'required' => 'Stock is required!'
                 ]
             ],
-           
- 
+
+
         ])) {
             session()->setFlashdata('error', $this->validator->listErrors());
             return redirect()->back()->withInput();
@@ -87,9 +86,9 @@ class ProductController extends BaseController
             'price' => $this->request->getVar('price'),
             'stock' => $this->request->getVar('stock')
         ];
-        
+
         $this->product->save($data);
-        
+
         return redirect()->to('/product');
     }
     public function save_edit($product_id)
@@ -125,8 +124,8 @@ class ProductController extends BaseController
                     'required' => 'Stock is required!'
                 ]
             ],
-           
- 
+
+
         ])) {
             session()->setFlashdata('error', $this->validator->listErrors());
             return redirect()->back()->withInput();

@@ -3,7 +3,7 @@
 <?= $this->include('admin/layout/sidebar') ?>
 <div class="main-panel">
     <div class="content-wrapper">
-        <a href="/add-admin">
+        <a href="/admin/manage/accounts/add">
             <button type="button" class="btn btn-info">
                 <i class="mdi mdi-account-plus"></i>
                 Add admin
@@ -28,31 +28,24 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Admin</td>
-                                    <td>Admin</td>
-                                    <td colspan="2">dudu@gmail.com</td>
-
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>Agus</td>
-                                    <td>Agus Rumadani</td>
-                                    <td>dudu@gmail.com</td>
-                                    <td>
-                                        <button type="button" class="btn btn-danger" onclick="hapus()"><i class="mdi mdi-delete"></i> Delete</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>Rudi</td>
-                                    <td>Rudi Rumadani</td>
-                                    <td>dudu@gmail.com</td>
-                                    <td>
-                                        <button type="button" class="btn btn-danger" onclick="hapus()"><i class="mdi mdi-delete"></i> Delete</button>
-                                    </td>
-                                </tr>
+                                <?php $id = 1;
+                                foreach ($admins as $a) : ?>
+                                    <tr>
+                                        <td><?= $id++; ?></td>
+                                        <td><?= $a['username']; ?></td>
+                                        <td><?= $a['fullname']; ?></td>
+                                        <td><?= $a['email']; ?></td>
+                                        <td>
+                                            <?php if ($a['username'] !== 'admin') : ?>
+                                                <form action="/admin/manage/accounts/delete/<?= $a['user_id']; ?>" method="post">
+                                                    <?= csrf_field(); ?>
+                                                    <input type="hidden" name="_method" value="DELETE">
+                                                    <button type="submit" class="btn btn-danger btn-icon"><i class="mdi mdi-delete"></i></button>
+                                                </form>
+                                            <?php endif; ?>
+                                        </td>
+                                    </tr>
+                                <?php endforeach; ?>
                             </tbody>
                         </table>
                     </div>
@@ -77,34 +70,26 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Tono</td>
-                                    <td>Tono jagoan mama</td>
-                                    <td>dudu@gmail.com</td>
-                                    <td>
-                                        <button type="button" onclick="activated()" class="btn btn-danger"><i class="mdi mdi-key"></i> Deactivated</button>
-                                    </td>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>Agus</td>
-                                    <td>Agus Rumadani</td>
-                                    <td>dudu@gmail.com</td>
-                                    <td>
-                                        <button type="button" onclick="deactivated()" class="btn btn-success"><i class="mdi mdi mdi-key"></i> Activated</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>Rudi</td>
-                                    <td>Rudi Rumadani</td>
-                                    <td>dudu@gmail.com</td>
-                                    <td>
-                                        <button type="button" onclick="deactivated()" class="btn btn-success"><i class="mdi mdi mdi-key"></i> Activated</button>
-                                    </td>
-                                </tr>
+                                <?php $id = 1;
+                                foreach ($users as $u) :
+                                ?>
+                                    <tr>
+                                        <td><?= $id++; ?></td>
+                                        <td><?= $u['username']; ?></td>
+                                        <td><?= $u['fullname']; ?></td>
+                                        <td><?= $u['email']; ?></td>
+                                        <td>
+                                            <form action="/admin/manage/accounts/delete/<?= $u['user_id']; ?>" method="post">
+                                                <?= csrf_field(); ?>
+                                                <input type="hidden" name="_method" value="DELETE">
+                                                <button type="submit" class="btn btn-danger btn-icon"><i class="mdi mdi-delete"></i></button>
+                                            </form>
+                                            <!-- <button type="button" onclick="confirm('Are you sure? This data will be deleted permanently.')" class="btn btn-danger btn-icon"><i class="mdi mdi-delete"></i></button> -->
+                                            <!-- <a href="javascript:void(0)" onclick="location.href='/acc-management/delete/<?= $u['user_id']; ?>'" class="btn btn-danger btn-icon"><i class="mdi mdi-delete"></i></a> -->
+                                        </td>
+                                        </td>
+                                    </tr>
+                                <?php endforeach; ?>
                             </tbody>
                         </table>
                     </div>
