@@ -12,11 +12,19 @@ class ProductController extends BaseController
     public function __construct()
     {
         $this->product = new ProductModel();
+        $this->pager = \Config\Services::pager();
         
     }
     public function product()
     {
-        $data['product'] = $this->product->where('user_id', session()->get('user_id'))->findAll();
+        $session = session();
+        // $data['product'] = $this->product->where('user_id', session()->get('user_id'))->findAll();
+        $data = [
+            'product' => $this->product->paginate('10','product'),
+            'pager' => $this->product->pager
+        ];
+         $session->setFlashdata('inputmsg', 'ditambahkan');
+        // dd($data);
         return view('user/product/v_product', $data);
     }
     public function add_product()
@@ -37,6 +45,7 @@ class ProductController extends BaseController
         if($data['user_id'] == session()->get('user_id')){
             $this->product->delete($product_id);
         }
+        session()->setFlashdata('inputmsg','Dihapus!');
         return redirect()->to('/product');
     }
     public function save_new()
@@ -88,7 +97,7 @@ class ProductController extends BaseController
         ];
         
         $this->product->save($data);
-        
+        session()->setFlashdata('inputmsg','Ditambahkan!');
         return redirect()->to('/product');
     }
     public function save_edit($product_id)
@@ -138,6 +147,7 @@ class ProductController extends BaseController
             'price' => $this->request->getVar('price'),
             'stock' => $this->request->getVar('stock')
         ]);
+        session()->setFlashdata('inputmsg','Diubah!');
         return redirect()->to('/product');
     }
 }

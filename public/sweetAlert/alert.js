@@ -21,3 +21,29 @@ if(flashData=="usernameNotFound"){
     text: '',
   })
 }
+if(flashData){
+  Swal.fire({
+    title: 'Data Produk',
+    text: 'Berhasil' + flashData,
+    type: 'success'
+  })
+}
+$(document).on('click', '.btn-hapus',function(e){
+  e.preventDefault();
+  const href = $(this).attr('href');
+  Swal.fire({
+    title: 'Yakin untuk Menghapus produk ini?',
+    text: "Data yang terhapus tidak dapat dikembalikan!",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Ya, Hapus!'
+  }).then((result) => {
+    if (result.value) {
+        document.location.href=href;
+      
+    }
+  })
+})
+
