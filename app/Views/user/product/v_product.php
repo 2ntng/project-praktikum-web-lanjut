@@ -3,6 +3,7 @@
 
 <?= $this->include('user/layout/navbar') ?>
 <?= $this->include('user/layout/sidebar') ?>
+<div class="flash-data" data-flashdata="<?= session()->get('inputmsg') ?>"></div>
 <div class="main-panel">
     <div class="content-wrapper">
         <div class="row">
@@ -20,8 +21,9 @@
                     <div class="card-body">
                         <p class="card-title">Product List</p>
                         <div class="mt-3 d-flex justify-content-start">
-                            <a class ="btn btn-warning btn-icon-text"href="/product/add"><i class="ti-plus btn-icon-prepend"></i>Add Product</a>
+                            <a class="btn btn-warning btn-icon-text" href="/product/add"><i class="ti-plus btn-icon-prepend"></i>Add Product</a>
                         </div>
+
                         <table class="table table-hover table-bordered" id="table1">
                             <thead>
                                 <tr>
@@ -31,13 +33,15 @@
                                     <th scope="col">Price</th>
                                     <th scope="col">Stock</th>
                                     <th scope="col">Action</th>
-                                
+
                             </thead>
                             <tbody>
                                 <?php $no = 1;
                                 foreach ($product as $row) { ?>
                                     <tr>
-                                        <th scope="row"><p><?= $no++; ?></p></th>
+                                        <th scope="row">
+                                            <p><?= $no++; ?></p>
+                                        </th>
                                         <td><?= $row['name']; ?></td>
                                         <!-- <td><= $row['description']; ?></td> -->
                                         <td>Rp. <?= $row['price']; ?></td>
@@ -53,6 +57,9 @@
                                 ?>
                             </tbody>
                         </table>
+                        <div class="col-4">
+                            
+                        </div>
                     </div>
                 </div>
             </div>
@@ -95,9 +102,9 @@
     <!-- content-wrapper ends -->
     <?= $this->include('user/layout/footer_comment') ?>
     <script src="<?= base_url('vendors/simple-datatables/simple-datatables.js') ?>"></script>
-	<script>
-		// Simple Datatable
-		let table1 = document.querySelector('#table1');
-		let dataTable = new simpleDatatables.DataTable(table1);
-	</script>
+    <script>
+        // Simple Datatable
+        let table1 = document.querySelector('#table1');
+        let dataTable = new simpleDatatables.DataTable(table1);
+    </script>
     <?= $this->include('user/layout/footer') ?>

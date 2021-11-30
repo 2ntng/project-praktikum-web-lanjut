@@ -15,7 +15,13 @@ class ProductController extends BaseController
     }
     public function product()
     {
+        $session = session();
         $data['product'] = $this->product->where('user_id', session()->get('user_id'))->findAll();
+        // $data = [
+        //     'product' => $this->product->paginate('10','product'),
+        //     'pager' => $this->product->pager
+        // ];
+        $session->setFlashdata('inputmsg', 'ditambahkan');
         // dd($data);
         return view('user/product/v_product', $data);
     }
@@ -88,7 +94,7 @@ class ProductController extends BaseController
         ];
 
         $this->product->save($data);
-
+        session()->setFlashdata('inputmsg', 'Ditambahkan!');
         return redirect()->to('/product');
     }
     public function save_edit($product_id)
@@ -138,6 +144,7 @@ class ProductController extends BaseController
             'price' => $this->request->getVar('price'),
             'stock' => $this->request->getVar('stock')
         ]);
+        session()->setFlashdata('inputmsg', 'Diubah!');
         return redirect()->to('/product');
     }
 }
