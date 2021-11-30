@@ -49,7 +49,7 @@
                                         <td>
                                             <a href=""><button type="button" class="btn btn-icon btn-primary" title="Details"><i class="ti-info btn-icon-prepend"></i></button></a>
                                             <a href="/product/edit/<?= $row['product_id'] ?>"><button type="button" class="btn btn-icon btn-warning" title="Edit"><i class="ti-pencil btn-icon-prepend"></i></button></a>
-                                            <a href="/product/delete/<?= $row['product_id'] ?>"><button type="button" class="btn btn-icon btn-danger btn-hapus" title="Delete"><i class="ti-trash btn-icon-prepend"></i></button></a>
+                                            <a href="/product/delete/<?= $row['product_id'] ?>"><button type="button" class="btn btn-icon btn-danger" title="Delete"><i class="ti-trash btn-icon-prepend"></i></button></a>
                                         </td>
                                     </tr>
                                 <?php
@@ -58,7 +58,7 @@
                             </tbody>
                         </table>
                         <div class="col-4">
-                            <?= $pager->links('product', 'bootstrap_pagination'); ?>
+                            
                         </div>
                     </div>
                 </div>
