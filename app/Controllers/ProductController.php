@@ -17,7 +17,6 @@ class ProductController extends BaseController
     public function product()
     {
         $data['product'] = $this->product->where('user_id', session()->get('user_id'))->findAll();
-        // dd($data);
         return view('user/product/v_product', $data);
     }
     public function add_product()

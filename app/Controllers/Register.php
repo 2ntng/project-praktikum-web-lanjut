@@ -15,7 +15,6 @@ class Register extends BaseController
 
     public function index()
     {
-        //include helper form
         helper(['form']);
         $data = [];
         echo view('access/v_register', $data);
@@ -43,10 +42,11 @@ class Register extends BaseController
             ];
             $model->save($data);
             $session->setFlashdata('msg', 'userRegistered');
-            return redirect()->to('login');
+            return redirect()->to('/login');
         }else{
             $validation = $this->validator;
             $session->setFlashdata('msg', $validation->listErrors());
+            return redirect()->to('/register');
         }
          
     }

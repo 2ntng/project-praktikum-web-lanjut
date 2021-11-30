@@ -34,8 +34,8 @@ $routes->setAutoRoute(true);
 $routes->get('/', 'Dashboard::index', ['filter' => 'auth']);
 $routes->get('/login', 'Login::index');
 $routes->get('/logout', 'Login::logout');
-// $routes->get('/register', 'Register::index');
 // $routes->post('/register/save', 'Register::save');
+// $routes->get('/register', 'Register::index');
 
 // Hasil merge routes nopri, bintang ke raymond
 $routes->get('/dashboard', 'Dashboard::index', ['filter' => 'auth']);
