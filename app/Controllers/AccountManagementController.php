@@ -4,9 +4,8 @@ namespace App\Controllers;
 
 use App\Models\UserModel;
 
-class Register extends BaseController
+class AccountManagementController extends BaseController
 {
-
     protected $userModel;
     public function __construct()
     {
@@ -15,10 +14,19 @@ class Register extends BaseController
 
     public function index()
     {
-        helper(['form']);
-        $data = [];
-        echo view('access/v_register', $data);
+        $data = [
+            'users' => $this->userModel->where('role', 1)->findAll(),
+            'admins' => $this->userModel->where('role', 0)->findAll()
+        ];
+
+        return view('admin/v_accountManagement', $data);
     }
+
+    public function add()
+    {
+        return view('admin/v_add');
+    }
+
     public function save()
     {
         $session = session();
@@ -32,21 +40,36 @@ class Register extends BaseController
         ];
 
         if ($this->validate($rules)) {
-            $model = new UserModel();
             $data = [
                 'username'  => $this->request->getVar('username'),
                 'password'  => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT),
                 'fullname'  => $this->request->getVar('fullname'),
                 'email'     => $this->request->getVar('email'),
-                'role'      => 1
+                'role'      => 0
             ];
-            $model->save($data);
+            $this->userModel->save($data);
             $session->setFlashdata('msg', 'userRegistered');
-            return redirect()->to('/login');
-        }else{
+            return redirect()->to('/admin/manage/accounts');
+        } else {
             $validation = $this->validator;
             $session->setFlashdata('msg', $validation->listErrors());
-            return redirect()->to('/register');
         }
+    }
+
+    public function edit($id)
+    {
+        return view('admin/v_edit');
+    }
+
+    public function update()
+    {
+    }
+
+    public function delete($id)
+    {
+        if (session()->get('role') == 0) {
+            $this->userModel->delete($id);
+        }
+        return redirect()->to('/admin/manage/accounts');
     }
 }

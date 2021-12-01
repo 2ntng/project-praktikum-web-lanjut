@@ -29,7 +29,7 @@
                                 <tr>
                                     <th scope="col">#</th>
                                     <th scope="col">Name</th>
-                                    <!-- <th scope="col">Description</th> -->
+                                    <th scope="col">Category</th>
                                     <th scope="col">Price</th>
                                     <th scope="col">Stock</th>
                                     <th scope="col">Action</th>
@@ -43,13 +43,13 @@
                                             <p><?= $no++; ?></p>
                                         </th>
                                         <td><?= $row['name']; ?></td>
-                                        <!-- <td><= $row['description']; ?></td> -->
+                                        <td><?= $categories[$row['category_id']-1]['name']; ?></td>
                                         <td>Rp. <?= $row['price']; ?></td>
                                         <td><?= $row['stock']; ?></td>
                                         <td>
                                             <a href=""><button type="button" class="btn btn-icon btn-primary" title="Details"><i class="ti-info btn-icon-prepend"></i></button></a>
                                             <a href="/product/edit/<?= $row['product_id'] ?>"><button type="button" class="btn btn-icon btn-warning" title="Edit"><i class="ti-pencil btn-icon-prepend"></i></button></a>
-                                            <a href="/product/delete/<?= $row['product_id'] ?>"><button type="button" class="btn btn-icon btn-danger btn-hapus" title="Delete"><i class="ti-trash btn-icon-prepend"></i></button></a>
+                                            <button type="button" class="btn btn-icon btn-danger" onclick="deleteProduct(<?= $row['product_id'] ?>)" title="Delete"><i class="ti-trash btn-icon-prepend"></i></button>
                                         </td>
                                     </tr>
                                 <?php

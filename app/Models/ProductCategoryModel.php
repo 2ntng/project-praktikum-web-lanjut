@@ -4,7 +4,7 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class ProductCategory extends Model
+class ProductCategoryModel extends Model
 {
     // protected $DBGroup              = 'default';
     protected $table                = 'product_category';

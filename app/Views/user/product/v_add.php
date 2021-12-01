@@ -51,10 +51,11 @@
                             <div>
                                 <div class="form-group">
                                     <label for="category_id">Category</label>
-                                    <!-- <input type="text" class="form-control" name="category_id" placeholder="Category" value="<?= old('category_id'); ?>"> -->
-                                    <option value="">
-                                        
-                                    </option>
+                                    <select class="form-control" id="category_id" name="category_id">
+                                        <?php foreach ($categories as $category) { ?>
+                                            <option value="<?= $category['category_id'] ?>"><?= $category['name'] ?></option>
+                                        <?php } ?>
+                                    </select>
                                 </div>
                             </div>
                             <div>

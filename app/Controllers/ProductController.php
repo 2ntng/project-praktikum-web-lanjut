@@ -4,36 +4,37 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\ProductModel;
+use App\Models\ProductCategoryModel;
 
 class ProductController extends BaseController
 {
-    
+
     protected $product;
     public function __construct()
     {
         $this->product = new ProductModel();
-        
+        $this->categories = new ProductCategoryModel();
     }
     public function product()
     {
-        $session = session();
-        $data['product'] = $this->product->where('user_id', session()->get('user_id'))->findAll();
-        // $data = [
-        //     'product' => $this->product->where('user_id', session()->get('user_id'))->paginate('10','product'),
-        //     'pager' => $this->product->pager
-        // ];
-         $session->setFlashdata('inputmsg', 'ditambahkan');
-        // dd($data);
+        $data = [
+            'product' => $this->product->where('user_id', session()->get('user_id'))->findAll(),
+            'categories' => $this->categories->findAll()
+        ];
         return view('user/product/v_product', $data);
     }
     public function add_product()
     {
-        return view('user/product/v_add');
+        $data['categories'] = $this->categories->findAll();
+        return view('user/product/v_add', $data);
     }
     public function edit_product($product_id)
     {
-        $data = $this->product->find($product_id);
-        if($data['user_id'] != session()->get('user_id')){
+        $data = [
+            'product' => $this->product->find($product_id),
+            'categories' => $this->categories->findAll()
+        ];
+        if ($data['product']['user_id'] != session()->get('user_id')) {
             return redirect()->to('/product');
         }
         return view('user/product/v_edit', $data);
@@ -41,14 +42,14 @@ class ProductController extends BaseController
     public function delete_product($product_id)
     {
         $data = $this->product->find($product_id);
-        if($data['user_id'] == session()->get('user_id')){
+        if ($data['user_id'] == session()->get('user_id')) {
             $this->product->delete($product_id);
         }
-        session()->setFlashdata('inputmsg','Dihapus!');
         return redirect()->to('/product');
     }
     public function save_new()
     {
+        // dd($this->request);
         if (!$this->validate([
             'name' => [
                 'rules' => 'required',
@@ -80,8 +81,8 @@ class ProductController extends BaseController
                     'required' => 'Stock is required!'
                 ]
             ],
-           
- 
+
+
         ])) {
             session()->setFlashdata('error', $this->validator->listErrors());
             return redirect()->back()->withInput();
@@ -94,9 +95,9 @@ class ProductController extends BaseController
             'price' => $this->request->getVar('price'),
             'stock' => $this->request->getVar('stock')
         ];
-        
+
         $this->product->save($data);
-        session()->setFlashdata('inputmsg','Ditambahkan!');
+        session()->setFlashdata('inputmsg', 'Ditambahkan!');
         return redirect()->to('/product');
     }
     public function save_edit($product_id)
@@ -132,8 +133,8 @@ class ProductController extends BaseController
                     'required' => 'Stock is required!'
                 ]
             ],
-           
- 
+
+
         ])) {
             session()->setFlashdata('error', $this->validator->listErrors());
             return redirect()->back()->withInput();
@@ -146,7 +147,7 @@ class ProductController extends BaseController
             'price' => $this->request->getVar('price'),
             'stock' => $this->request->getVar('stock')
         ]);
-        session()->setFlashdata('inputmsg','Diubah!');
+        session()->setFlashdata('inputmsg', 'Diubah!');
         return redirect()->to('/product');
     }
 

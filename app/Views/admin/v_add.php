@@ -8,7 +8,7 @@
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title">Admin add Form</h4>
-                    <form class="forms-sample" action="/management" method="post">
+                    <form class="forms-sample" action="/admin/manage/accounts/save" method="post">
                         <div class="form-group row">
                             <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Fullname</label>
                             <div class="col-sm-9">

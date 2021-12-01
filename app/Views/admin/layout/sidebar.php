@@ -9,9 +9,9 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/acc-management">
+                        <a class="nav-link" href="admin/manage/accounts">
                             <i class="mdi mdi-account-multiple"></i>
-                            <span class="menu-title"> User Management</span>
+                            <span class="menu-title">Manage Accounts</span>
                         </a>
                     </li>
                 </ul>
