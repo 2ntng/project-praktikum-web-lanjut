@@ -1,14 +1,15 @@
 <?= $this->include('admin/layout/header') ?>
 <?= $this->include('admin/layout/navbar') ?>
 <?= $this->include('admin/layout/sidebar') ?>
-
 <div class="main-panel">
     <div class="content-wrapper">
-        <div class="col-md-12 grid-margin stretch-card">
+        <div class="col-md-12 grid-margin stretch-card d-flex justify-content-center">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">Admin add Form</h4>
-                    <form class="forms-sample" action="/admin/manage/accounts/save" method="post">
+                    <div align="center">
+                        <h4 class="card-title">Perubahan data</h4>
+                    </div>
+                    <form class="forms-sample" action="/admin/settings/save" method="post">
                         <div class="form-group row">
                             <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Fullname</label>
                             <div class="col-sm-9">
@@ -37,15 +38,6 @@
                             <label for="exampleInputConfirmPassword2" class="col-sm-3 col-form-label">Email</label>
                             <div class="col-sm-9">
                                 <input type="email" class="form-control form-control-lg" name="email" placeholder="Email" required>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="exampleInputConfirmPassword2" class="col-sm-3 col-form-label">Role</label>
-                            <div class="col-sm-9">
-                                <select class="form-control" name="role" required>
-                                    <option value="0">Admin</option>
-                                    <option value="1">User</option>
-                                </select>
                             </div>
                         </div>
                         <div class="form-check form-check-flat form-check-primary">

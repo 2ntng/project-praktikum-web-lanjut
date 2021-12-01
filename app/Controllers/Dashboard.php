@@ -1,13 +1,16 @@
-<?php namespace App\Controllers;
-  
+<?php
+
+namespace App\Controllers;
+
 use CodeIgniter\Controller;
 use App\Models\ProductModel;
+use PDO;
+
 class Dashboard extends Controller
 {
     public function __construct()
     {
         $this->product = new ProductModel();
-        
     }
     public function index()
     {
@@ -17,10 +20,14 @@ class Dashboard extends Controller
         if ($session->get('role') == 0) {
             return view('admin/v_index');
         } else {
-            return view('user/v_index',[
+            return view('user/v_index', [
                 'jumlahProduct' => $jumlahProduct,
-                'stockProduct'=> $stockProduct,
+                'stockProduct' => $stockProduct,
             ]);
         }
+    }
+    public function settings()
+    {
+        return view('admin/v_settings');
     }
 }
