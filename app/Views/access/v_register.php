@@ -9,7 +9,8 @@
     <link rel="stylesheet" href="<?= base_url('vendors/ti-icons/css/themify-icons.css')?>">
     <link rel="stylesheet" href="<?= base_url('vendors/mdi/css/materialdesignicons.min.css')?>">
     <link rel="stylesheet" href="<?= base_url('css/vertical-layout-light/style.css')?>">
-    <link rel="shortcut icon" href="<?= base_url('images/favicon.png')?>" type="image/gif" />
+    <link rel="stylesheet" href="/sweetAlert/sweetalert2.min.css">
+    <link rel="shortcut icon" href="<?= base_url('images/favicon.png')?>" type="image/gif"/>
 </head>
 
 <body>
@@ -61,11 +62,11 @@
         </div>
         <!-- page-body-wrapper ends -->
     </div>
-    <script src="<?= base_url('sweetAlert\sweetalert2.all.min.js')?>"></script>
-    <script src="<?= base_url('sweetAlert\alert.js')?>"></script>
-    <script src="<?= base_url('vendors/js/vendor.bundle.base.js')?>"></script>
-    <script src="<?= base_url('js/template.js')?>"></script>
-    <script src="<?= base_url('js/dashboard.js')?>"></script>
+    <script src="/sweetAlert/alert.js"></script>
+    <script src="/sweetAlert/sweetalert2.all.min.js"></script>
+    <script src="/vendors/js/vendor.bundle.base.js"></script>
+    <script src="/js/template.js"></script>
+    <script src="/js/dashboard.js"></script>
 </body>
 
 </html>

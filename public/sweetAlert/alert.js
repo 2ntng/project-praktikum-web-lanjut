@@ -1,4 +1,4 @@
-const flashData = $('.flash-data').data('flashdata');
+const flashData = $(document).on('.flash-data').data('flashdata');
 if(flashData=="usernameNotFound"){
   Swal.fire({
     icon: 'error',

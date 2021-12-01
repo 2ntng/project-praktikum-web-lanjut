@@ -51,7 +51,10 @@
                             <div>
                                 <div class="form-group">
                                     <label for="category_id">Category</label>
-                                    <input type="text" class="form-control" name="category_id" placeholder="Category" value="<?= old('category_id'); ?>">
+                                    <!-- <input type="text" class="form-control" name="category_id" placeholder="Category" value="<?= old('category_id'); ?>"> -->
+                                    <option value="">
+                                        
+                                    </option>
                                 </div>
                             </div>
                             <div>

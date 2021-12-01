@@ -57,9 +57,6 @@
                                 ?>
                             </tbody>
                         </table>
-                        <div class="col-4">
-                            <?= $pager->links('product', 'bootstrap_pagination'); ?>
-                        </div>
                     </div>
                 </div>
             </div>
