@@ -340,34 +340,34 @@
   border: 0;
   border-radius: 0.25em;
   background: initial;
-  background-color: #7367f0;
+  background-color: #7066e0;
   color: #fff;
   font-size: 1em;
 }
 .swal2-styled.swal2-confirm:focus {
-  box-shadow: 0 0 0 3px rgba(115, 103, 240, 0.5);
+  box-shadow: 0 0 0 3px rgba(112, 102, 224, 0.5);
 }
 .swal2-styled.swal2-deny {
   border: 0;
   border-radius: 0.25em;
   background: initial;
-  background-color: #ea5455;
+  background-color: #dc3741;
   color: #fff;
   font-size: 1em;
 }
 .swal2-styled.swal2-deny:focus {
-  box-shadow: 0 0 0 3px rgba(234, 84, 85, 0.5);
+  box-shadow: 0 0 0 3px rgba(220, 55, 65, 0.5);
 }
 .swal2-styled.swal2-cancel {
   border: 0;
   border-radius: 0.25em;
   background: initial;
-  background-color: #6e7d88;
+  background-color: #6e7881;
   color: #fff;
   font-size: 1em;
 }
 .swal2-styled.swal2-cancel:focus {
-  box-shadow: 0 0 0 3px rgba(110, 125, 136, 0.5);
+  box-shadow: 0 0 0 3px rgba(110, 120, 129, 0.5);
 }
 .swal2-styled.swal2-default-outline:focus {
   box-shadow: 0 0 0 3px rgba(100, 150, 200, 0.5);

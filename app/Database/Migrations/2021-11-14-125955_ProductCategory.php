@@ -42,6 +42,20 @@ class ProductCategory extends Migration
 
 		// Insert Sample Category
 		$data = [
+            'name' => 'Electronics',
+            'description' => 'Electronics',
+			'created_at' => new Time('now'),
+			'updated_at' => new Time('now')
+        ];
+        $this->db->table('product_category')->insert($data);
+		$data = [
+            'name' => 'Hobby',
+            'description' => 'Hobby',
+			'created_at' => new Time('now'),
+			'updated_at' => new Time('now')
+        ];
+        $this->db->table('product_category')->insert($data);
+		$data = [
             'name' => 'Fashion',
             'description' => 'Fashion',
 			'created_at' => new Time('now'),
@@ -49,8 +63,8 @@ class ProductCategory extends Migration
         ];
         $this->db->table('product_category')->insert($data);
 		$data = [
-            'name' => 'Electronics',
-            'description' => 'Electronics',
+            'name' => 'Automotive',
+            'description' => 'Automotive',
 			'created_at' => new Time('now'),
 			'updated_at' => new Time('now')
         ];

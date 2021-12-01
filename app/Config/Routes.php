@@ -43,7 +43,7 @@ $routes->get('/dashboard', 'Dashboard::index', ['filter' => 'auth']);
 $routes->get('admin/manage/accounts', 'AccountManagementController::index', ['filter' => 'admin']);
 $routes->get('admin/manage/accounts/add', 'AccountManagementController::add', ['filter' => 'admin']);
 $routes->get('admin/manage/accounts/edit', 'AccountManagementController::edit');
-$routes->delete('admin/manage/accounts/delete/(:num)', 'AccountManagementController::delete/$1', ['filter' => 'admin']);
+$routes->get('admin/manage/accounts/delete/(:num)', 'AccountManagementController::delete/$1', ['filter' => 'admin']);
 $routes->post('admin/manage/accounts/save', 'AccountManagementController::save', ['filter' => 'admin']);
 $routes->get('admin/settings', 'Admin::settings');
 $routes->post('admin/settings/save', 'Admin::save');

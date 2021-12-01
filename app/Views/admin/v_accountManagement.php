@@ -85,13 +85,7 @@
                                         <td>
                                             <div class="row">
                                                 <div class="p-1">
-                                                    <form action="/admin/manage/accounts/delete/<?= $u['user_id']; ?>" method="post">
-                                                        <?= csrf_field(); ?>
-                                                        <input type="hidden" name="_method" value="DELETE">
-                                                        <button type="submit" class="btn btn-danger btn-icon"><i class="mdi mdi-delete"></i></button>
-                                                    </form>
-                                                    <!-- <button type="button" onclick="confirm('Are you sure? This data will be deleted permanently.')" class="btn btn-danger btn-icon"><i class="mdi mdi-delete"></i></button> -->
-                                                    <!-- <a href="javascript:void(0)" onclick="location.href='/acc-management/delete/<?= $u['user_id']; ?>'" class="btn btn-danger btn-icon"><i class="mdi mdi-delete"></i></a> -->
+                                                <button type="button" class="btn btn-icon btn-danger" onclick="deleteAccount(<?= $u['user_id']; ?>)" title="Delete"><i class="ti-trash btn-icon-prepend"></i></button>
                                                 </div>
                                             </div>
                                         </td>
