@@ -36,13 +36,17 @@
                                         <td><?= $a['fullname']; ?></td>
                                         <td><?= $a['email']; ?></td>
                                         <td>
-                                            <?php if ($a['username'] !== 'admin') : ?>
-                                                <form action="/admin/manage/accounts/delete/<?= $a['user_id']; ?>" method="post">
-                                                    <?= csrf_field(); ?>
-                                                    <input type="hidden" name="_method" value="DELETE">
-                                                    <button type="submit" class="btn btn-danger btn-icon"><i class="mdi mdi-delete"></i></button>
-                                                </form>
-                                            <?php endif; ?>
+                                            <div class="row">
+                                                <?php if ($a['username'] !== 'admin') : ?>
+                                                    <div class="p-1">
+                                                        <form action="/admin/manage/accounts/delete/<?= $a['user_id']; ?>" method="post">
+                                                            <?= csrf_field(); ?>
+                                                            <input type="hidden" name="_method" value="DELETE">
+                                                            <button type="submit" class="btn btn-danger btn-icon"><i class="mdi mdi-delete"></i></button>
+                                                        </form>
+                                                    </div>
+                                                <?php endif; ?>
+                                            </div>
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>
@@ -66,7 +70,7 @@
                                     <th>Username</th>
                                     <th>Fullname</th>
                                     <th>Email</th>
-                                    <th>Status</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -79,13 +83,17 @@
                                         <td><?= $u['fullname']; ?></td>
                                         <td><?= $u['email']; ?></td>
                                         <td>
-                                            <form action="/admin/manage/accounts/delete/<?= $u['user_id']; ?>" method="post">
-                                                <?= csrf_field(); ?>
-                                                <input type="hidden" name="_method" value="DELETE">
-                                                <button type="submit" class="btn btn-danger btn-icon"><i class="mdi mdi-delete"></i></button>
-                                            </form>
-                                            <!-- <button type="button" onclick="confirm('Are you sure? This data will be deleted permanently.')" class="btn btn-danger btn-icon"><i class="mdi mdi-delete"></i></button> -->
-                                            <!-- <a href="javascript:void(0)" onclick="location.href='/acc-management/delete/<?= $u['user_id']; ?>'" class="btn btn-danger btn-icon"><i class="mdi mdi-delete"></i></a> -->
+                                            <div class="row">
+                                                <div class="p-1">
+                                                    <form action="/admin/manage/accounts/delete/<?= $u['user_id']; ?>" method="post">
+                                                        <?= csrf_field(); ?>
+                                                        <input type="hidden" name="_method" value="DELETE">
+                                                        <button type="submit" class="btn btn-danger btn-icon"><i class="mdi mdi-delete"></i></button>
+                                                    </form>
+                                                    <!-- <button type="button" onclick="confirm('Are you sure? This data will be deleted permanently.')" class="btn btn-danger btn-icon"><i class="mdi mdi-delete"></i></button> -->
+                                                    <!-- <a href="javascript:void(0)" onclick="location.href='/acc-management/delete/<?= $u['user_id']; ?>'" class="btn btn-danger btn-icon"><i class="mdi mdi-delete"></i></a> -->
+                                                </div>
+                                            </div>
                                         </td>
                                         </td>
                                     </tr>
