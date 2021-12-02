@@ -81,9 +81,9 @@
                                                 <div class="row">
                                                     <div class="col-md-12 col-xl-3 d-flex flex-column justify-content-start">
                                                         <div class="ml-xl-4 mt-3">
-                                                            <p class="card-title">Detailed Reports</p>
-                                                            <h1 class="text-primary">$34040</h1>
-                                                            <h3 class="font-weight-500 mb-xl-4 text-primary">North America</h3>
+                                                            <p class="card-title">Jumlah User</p>
+                                                            <h1 class="text-primary"><?=$jumlahUser?></h1>
+                                                            <h3 class="font-weight-500 mb-xl-4 text-primary">Pengguna Website</h3>
                                                             <p class="mb-2 mb-xl-0">The total number of sessions within the date range. It is the period time a user is actively engaged with your website, page or app, etc</p>
                                                         </div>
                                                     </div>
@@ -162,8 +162,8 @@
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6 mt-3">
-                                                                <canvas id="north-america-chart"></canvas>
-                                                                <div id="north-america-legend"></div>
+                                                                <canvas id="userChart"></canvas>
+                                                                <div id="user-legend"></div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -280,5 +280,78 @@
 <?= $this->include('admin/layout/footer_comment') ?>
     <!-- Plugin js for this page -->
     <script src="<?= base_url('vendors/chart.js/Chart.min.js')?>"></script>
+    <script>
+        var userChart = document.getElementById('userChart');
+    
+    var data_chart ={
+        datasets:[{
+            data: [<?=$jumlahAdmin;?>, <?=$jumlahNonAdmin;?>],
+            backgroundColor:[
+                "#4B49AC","#FFC100"
+            ],
+            borderColor: "rgba(0,0,0,0)"
+        }],
+        labels: ["Admin", "Non Admin"],
+    }
+    var userplugin = {
+        beforeDraw: function(chart) {
+          var width = chart.chart.width,
+              height = chart.chart.height,
+              ctx = chart.chart.ctx;
+      
+          ctx.restore();    
+          var fontSize = 3.125;
+          ctx.font = "500 " + fontSize + "em sans-serif";
+          ctx.textBaseline = "middle";
+          ctx.fillStyle = "#13381B";
+      
+          var text = <?=$jumlahUser?>,
+              textX = Math.round((width - ctx.measureText(text).width) / 2),
+              textY = height / 2;
+      
+          ctx.fillText(text, textX, textY);
+          ctx.save();
+        }
+    }
+    var areaOptions = {
+        responsive: true,
+        maintainAspectRatio: true,
+        segmentShowStroke: false,
+        cutoutPercentage: 78,
+        elements: {
+          arc: {
+              borderWidth: 4
+          }
+        },      
+        legend: {
+          display: true
+        },
+        tooltips: {
+          enabled: true
+        },
+        legendCallback: function(chart) { 
+          var text = [];
+          text.push('<div class="report-chart">');
+            text.push('<div class="d-flex justify-content-between mx-4 mx-xl-5 mt-3"><div class="d-flex align-items-center"><div class="mr-3" style="width:20px; height:20px; border-radius: 50%; background-color: ' + chart.data.datasets[0].backgroundColor[0] + '"></div><p class="mb-0">Offline sales</p></div>');
+            text.push('<p class="mb-0">88333</p>');
+            text.push('</div>');
+            text.push('<div class="d-flex justify-content-between mx-4 mx-xl-5 mt-3"><div class="d-flex align-items-center"><div class="mr-3" style="width:20px; height:20px; border-radius: 50%; background-color: ' + chart.data.datasets[0].backgroundColor[1] + '"></div><p class="mb-0">Online sales</p></div>');
+            text.push('<p class="mb-0">66093</p>');
+            text.push('</div>');
+            text.push('<div class="d-flex justify-content-between mx-4 mx-xl-5 mt-3"><div class="d-flex align-items-center"><div class="mr-3" style="width:20px; height:20px; border-radius: 50%; background-color: ' + chart.data.datasets[0].backgroundColor[2] + '"></div><p class="mb-0">Returns</p></div>');
+            text.push('<p class="mb-0">39836</p>');
+            text.push('</div>');
+          text.push('</div>');
+          return text.join("");
+        },
+      }
+    var chart_user = new Chart(userChart,{
+        type: 'doughnut',
+        data: data_chart,
+        options: areaOptions,
+        plugins: userplugin,
+    });
+        
+    </script>
     <!-- End plugin js for this page -->
 <?= $this->include('admin/layout/footer') ?>
