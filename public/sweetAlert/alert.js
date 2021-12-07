@@ -9,11 +9,19 @@
 //     icon: 'error',
 //     title: 'Wrong Password!',
 //   })
-// }else if(flashData=="userRegistered"){
-//   Swal.fire({
-//     icon: 'success',
-//     title: 'User Registered!',
-//   })
+// }else 
+function accRegistered(){
+  Swal.fire({
+    title: 'Account Registered',
+    icon: 'success',
+    confirmButtonColor: '#3085d6',
+    confirmButtonText: 'OK'
+  }).then((result) => {
+    if (result.isConfirmed) {
+        document.location.href='/';
+    }
+  })
+}
 // }else if(flashData=="userNotRegistered"){
 //   Swal.fire({
 //     icon: 'error',
@@ -27,7 +35,11 @@
 //     text: 'Berhasil' + flashData,
 //     type: 'success'
 //   })
-// }
+// }'
+
+
+
+
 function deleteProduct(id){
   Swal.fire({
     title: 'Are you sure to delete this product?',

@@ -85,7 +85,7 @@
                                         <td>
                                             <div class="row">
                                                 <div class="p-1">
-                                                <button type="button" class="btn btn-icon btn-danger" onclick="deleteAccount(<?= $u['user_id']; ?>)" title="Delete"><i class="ti-trash btn-icon-prepend"></i></button>
+                                                <button type="button" class="btn btn-icon btn-danger" onclick="deleteAccount(<?= $u['user_id']; ?>)" title="Delete"><i class="mdi mdi-delete"></i></button>
                                                 </div>
                                             </div>
                                         </td>
