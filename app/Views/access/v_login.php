@@ -50,6 +50,16 @@
   <script src="<?= base_url('vendors/js/vendor.bundle.base.js')?>"></script>
   <script src="<?= base_url('js/template.js')?>"></script>
   <script src="<?= base_url('js/dashboard.js')?>"></script>
+  <?php if (!empty(session()->getFlashdata('wrongPassword'))) : ?>
+    <script>
+        wrongPassword();
+    </script>
+  <?php endif; ?>
+  <?php if (!empty(session()->getFlashdata('usernameNotFound'))) : ?>
+    <script>
+        usernameNotFound();
+    </script>
+  <?php endif; ?>
 </body>
 
 </html>

@@ -34,11 +34,11 @@ class Login extends BaseController
                 $session->set($ses_data);
                 return redirect()->to('/dashboard');
             } else {
-                $session->setFlashdata('msg', 'wrongPassword');
+                $session->setFlashdata('wrongPassword', 'wrongPassword');
                 return redirect()->to('/login');
             }
         } else {
-            $session->setFlashdata('msg', 'usernameNotFound');
+            $session->setFlashdata('usernameNotFound', 'usernameNotFound');
             return redirect()->to('/login');
         }
     }

@@ -1,14 +1,17 @@
 <?= $this->include('admin/layout/header') ?>
 <?= $this->include('admin/layout/navbar') ?>
 <?= $this->include('admin/layout/sidebar') ?>
-<?php $session = session(); ?>            
+<?php
+use App\Models\UserModel;
+$this->user = new UserModel();
+$session = session(); ?>    
             <div class="main-panel">
                 <div class="content-wrapper">
                     <div class="row">
                         <div class="col-md-12 grid-margin">
                             <div class="row">
                                 <div class="col-12 col-xl-8 mb-4 mb-xl-0">
-                                    <h3 class="font-weight-bold">Welcome, <?= $session->get('fullname'); ?> (Admin)</h3>
+                                    <h3 class="font-weight-bold">Welcome, <?= $this->user->find($session->get('user_id'))['fullname'] ?> (Admin)</h3>
                                     <!-- <h6 class="font-weight-normal mb-0">All systems are running smoothly! You have <span class="text-primary">3 unread alerts!</span></h6> -->
                                 </div>
                                 <div class="col-12 col-xl-4">
