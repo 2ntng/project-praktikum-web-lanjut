@@ -29,6 +29,7 @@ class Dashboard extends Controller
             return view('user/v_index',[
                 'jumlahProduct' => $this->product->where('user_id', session()->get('user_id'))->countAllResults(),
                 'stockProduct'=> $stockProduct,
+                'cart'=>\Config\Services::cart(),
             ]);
         }
     }

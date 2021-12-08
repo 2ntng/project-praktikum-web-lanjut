@@ -24,6 +24,13 @@
                         </div>
                     </li>
                 </ul>
+                <?php
+                $keranjang = $cart->contents();
+                $jml_item = 0;
+                foreach ($keranjang as $key => $value) {
+                    $jml_item = $jml_item + $value['qty'];
+                }
+                ?>
                 <ul class="navbar-nav navbar-nav-right">
                     <li class="nav-item nav-profile dropdown">
                         <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="cartDropdown">
