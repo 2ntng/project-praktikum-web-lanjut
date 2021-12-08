@@ -40,13 +40,13 @@ $routes->get('/logout', 'Login::logout');
 // Hasil merge routes nopri, bintang ke raymond
 $routes->get('/dashboard', 'Dashboard::index', ['filter' => 'auth']);
 //Admin Routes
-$routes->get('admin/manage/accounts', 'AccountManagementController::index', ['filter' => 'admin']);
-$routes->get('admin/manage/accounts/add', 'AccountManagementController::add', ['filter' => 'admin']);
-$routes->get('admin/manage/accounts/edit', 'AccountManagementController::edit');
-$routes->get('admin/manage/accounts/delete/(:num)', 'AccountManagementController::delete/$1', ['filter' => 'admin']);
-$routes->post('admin/manage/accounts/save', 'AccountManagementController::save', ['filter' => 'admin']);
-$routes->get('admin/settings', 'Admin::settings');
-$routes->post('admin/settings/save', 'Admin::save');
+$routes->get('/admin/manage/accounts', 'AccountManagementController::index', ['filter' => 'admin']);
+$routes->get('/admin/manage/accounts/add', 'AccountManagementController::add', ['filter' => 'admin']);
+// $routes->get('admin/manage/accounts/edit', 'AccountManagementController::edit');
+$routes->get('/admin/manage/accounts/delete/(:num)', 'AccountManagementController::delete/$1', ['filter' => 'admin']);
+$routes->post('/admin/manage/accounts/save', 'AccountManagementController::save', ['filter' => 'admin']);
+$routes->get('/admin/settings(:num)', 'Admin::settings/$1', ['filter' => 'admin']);
+$routes->post('/admin/settings/update/(:num)', 'Admin::update/$1', ['filter' => 'admin']);
 //User Routes
 $routes->get('/template', 'Navigation::template', ['filter' => 'user']);
 $routes->get('/product', 'ProductController::product', ['filter' => 'user']);

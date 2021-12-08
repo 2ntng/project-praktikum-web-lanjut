@@ -39,11 +39,7 @@
                                             <div class="row">
                                                 <?php if ($a['username'] !== 'admin') : ?>
                                                     <div class="p-1">
-                                                        <form action="/admin/manage/accounts/delete/<?= $a['user_id']; ?>" method="post">
-                                                            <?= csrf_field(); ?>
-                                                            <input type="hidden" name="_method" value="DELETE">
-                                                            <button type="submit" class="btn btn-danger btn-icon"><i class="mdi mdi-delete"></i></button>
-                                                        </form>
+                                                        <button type="button" class="btn btn-icon btn-danger" onclick="deleteAccount(<?= $a['user_id']; ?>)" title="Delete"><i class="ti-trash btn-icon-prepend"></i></button>
                                                     </div>
                                                 <?php endif; ?>
                                             </div>
@@ -85,7 +81,7 @@
                                         <td>
                                             <div class="row">
                                                 <div class="p-1">
-                                                <button type="button" class="btn btn-icon btn-danger" onclick="deleteAccount(<?= $u['user_id']; ?>)" title="Delete"><i class="ti-trash btn-icon-prepend"></i></button>
+                                                    <button type="button" class="btn btn-icon btn-danger" onclick="deleteAccount(<?= $u['user_id']; ?>)" title="Delete"><i class="ti-trash btn-icon-prepend"></i></button>
                                                 </div>
                                             </div>
                                         </td>
