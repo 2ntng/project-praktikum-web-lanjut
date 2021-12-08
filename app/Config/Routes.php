@@ -42,11 +42,11 @@ $routes->get('/dashboard', 'Dashboard::index', ['filter' => 'auth']);
 //Admin Routes
 $routes->get('/admin/manage/accounts', 'AccountManagementController::index', ['filter' => 'admin']);
 $routes->get('/admin/manage/accounts/add', 'AccountManagementController::add', ['filter' => 'admin']);
-// $routes->get('admin/manage/accounts/edit', 'AccountManagementController::edit');
+$routes->get('/admin/manage/accounts/edit', 'AccountManagementController::edit');
 $routes->get('/admin/manage/accounts/delete/(:num)', 'AccountManagementController::delete/$1', ['filter' => 'admin']);
 $routes->post('/admin/manage/accounts/save', 'AccountManagementController::save', ['filter' => 'admin']);
-$routes->get('/admin/settings(:num)', 'Admin::settings/$1', ['filter' => 'admin']);
-$routes->post('/admin/settings/update/(:num)', 'Admin::update/$1', ['filter' => 'admin']);
+$routes->get('/admin/settings', 'Admin::settings', ['filter' => 'admin']);
+$routes->post('/admin/settings/save', 'Admin::save', ['filter' => 'admin']);
 //User Routes
 $routes->get('/template', 'Navigation::template', ['filter' => 'user']);
 $routes->get('/product', 'ProductController::product', ['filter' => 'user']);
@@ -55,8 +55,11 @@ $routes->post('/product/save-new', 'ProductController::save_new', ['filter' => '
 $routes->get('/product/edit/(:num)', 'ProductController::edit_product/$1', ['filter' => 'user']);
 $routes->post('/product/save-edit/(:num)', 'ProductController::save_edit/$1', ['filter' => 'user']);
 $routes->get('/product/delete/(:num)', 'ProductController::delete_product/$1', ['filter' => 'user']);
-$routes->get('user/settings', 'User::settings');
-$routes->post('user/settings/save', 'User::save');
+$routes->get('/user/settings', 'User::settings', ['filter' => 'user']);
+$routes->post('/user/settings/save', 'User::save', ['filter' => 'user']);
+
+$routes->get('/home', 'Navigation::home');
+$routes->get('/product/detail', 'Navigation::product_detail');
 // End - hasil merge routes nopri, bintang ke raymond
 
 // $routes->get('/', 'Navigation::login');

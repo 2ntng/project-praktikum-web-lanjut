@@ -25,10 +25,25 @@ class Register extends BaseController
         helper(['form']);
         $rules = [
             'fullname'      => 'required|min_length[3]|max_length[64]',
-            'username'      => 'required|min_length[3]|max_length[64]|is_unique[user.username]',
-            'email'         => 'required|min_length[3]|max_length[64]|valid_email|is_unique[user.email]',
+            'username'      => [
+                'rules' => 'required|min_length[3]|max_length[64]|is_unique[user.username]',
+                'errors' => [
+                    'is_unique' => 'Username is not available!'
+                ]
+            ],
+            'email'         => [
+                'rules' => 'required|min_length[3]|max_length[64]|valid_email|is_unique[user.email]',
+                'errors' => [
+                    'is_unique' => 'Email address is already in use!'
+                ]
+            ],
             'password'      => 'required|min_length[3]|max_length[200]',
-            'confpassword'  => 'matches[password]'
+            'confpassword'  => [
+                'rules' => 'matches[password]',
+                'errors' => [
+                    'matches' => 'Passwords do not match!'
+                ]
+            ]
         ];
 
         if ($this->validate($rules)) {
@@ -41,12 +56,12 @@ class Register extends BaseController
                 'role'      => 1
             ];
             $model->save($data);
-            $session->setFlashdata('msg', 'userRegistered');
-            return redirect()->to('/login');
+            $session->setFlashdata('userRegistered', 'userRegistered');
+            return redirect()->to('/register');
         }else{
             $validation = $this->validator;
-            $session->setFlashdata('msg', $validation->listErrors());
-            return redirect()->to('/register');
+            $session->setFlashdata('error', $validation->listErrors());
+            return redirect()->back()->withInput();
         }
     }
 }

@@ -26,8 +26,34 @@
                 </ul>
                 <ul class="navbar-nav navbar-nav-right">
                     <li class="nav-item nav-profile dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="cartDropdown">
+                            <i class="ti-shopping-cart"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="cartDropdown">
+                        <?php if(empty($keranjang)){?>
+                                <a class="dropdown-item" href="#">Keranjang Kosong</a>
+                            <?php }else{?>
+                                <?php foreach ($keranjang as $key => $value):?>
+                                    <a class="dropdown-item" href="#">
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <h6 class="dropdown-item-title text-wrap mb-2">
+                                                    <?= $value['name'] ?>
+                                                    <p class="text-sm text-danger">jumlah = <?= $value['qty']; ?></p>
+                                                </h6>
+                                            </div>
+                                            <div class="col-6">
+                                                <p class="text-sm text-primary">Rp. <?= $value['subtotal']; ?>.00</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                <?php endforeach?>
+                            <?php }?>
+                        </div>
+                    </li>
+                    <li class="nav-item nav-profile dropdown">
                         <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
-                            <img src="../../images/faces/face28.jpg" alt="profile" />
+                            <img src="../../images/faces/face0.png" alt="profile" />
                         </a>
                         <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
                             <a class="dropdown-item" href="/user/settings">

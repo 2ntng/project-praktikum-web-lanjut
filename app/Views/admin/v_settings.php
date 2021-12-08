@@ -7,28 +7,25 @@
             <div class="card">
                 <div class="card-body">
                     <div align="center">
-                        <h4 class="card-title">Edit Profile</h4>
+                        <h4 class="card-title">Account Settings</h4>
                     </div>
-                    <form class="forms-sample" action="admin/settings/update" method="post">
-                        <?php foreach ($profile as $p) : ?>
-                            <div class="form-group row">
-                                <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Fullname</label>
-                                <div class="col-sm-9">
-                                    <input type="text" class="form-control form-control-lg" name="fullname" value="<?= $p['fullname']; ?>" required>
-                                </div>
+                    <form class="forms-sample" action="/admin/settings/save" method="post">
+                        <div class="form-group row">
+                            <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Fullname</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control form-control-lg" name="fullname" placeholder="Fullname" value="<?= $fullname ?>" required>
                             </div>
-                            <div class="form-group row">
-                                <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Username</label>
-                                <div class="col-sm-9">
-                                    <input type="text" minLength="4" class="form-control form-control-lg" name="username" value="<?= $p['username']; ?>" required>
-                                </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Username</label>
+                            <div class="col-sm-9">
+                                <input type="text" minLength="4" class="form-control form-control-lg" name="username" placeholder="Username" value="<?= $username ?>" required>
                             </div>
-
-                            <!-- CHANGE PASSWORD FEATURE -->
-                            <!-- <div class="form-group row">
+                        </div>
+                        <!-- <div class="form-group row">
                             <label for="exampleInputMobile" class="col-sm-3 col-form-label">Password</label>
                             <div class="col-sm-9">
-                                <input type="password" minLength="4" class="form-control form-control-lg" name="password" placeholder="Password" required>
+                                <input type="password" minLength="4" class="form-control form-control-lg" name="username" placeholder="Password" required>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -37,21 +34,23 @@
                                 <input type="password" minLength="4" class="form-control form-control-lg" name="confpassword" placeholder="Confirm Password" required>
                             </div>
                         </div> -->
-
-                            <div class="form-group row">
-                                <label for="exampleInputConfirmPassword2" class="col-sm-3 col-form-label">Email</label>
-                                <div class="col-sm-9">
-                                    <input type="email" class="form-control form-control-lg" name="email" value="<?= $p['email']; ?>" required>
-                                </div>
+                        <div class="form-group row">
+                            <label for="exampleInputConfirmPassword2" class="col-sm-3 col-form-label">Email</label>
+                            <div class="col-sm-9">
+                                <input type="email" class="form-control form-control-lg" name="email" placeholder="Email" value="<?= $email ?>" required>
                             </div>
-                            <div class="form-check form-check-flat form-check-primary">
-                                <label class="form-check-label">
-                                    <input type="checkbox" class="form-check-input" required>
-                                    Confirmation submit
-                                </label>
+                        </div>
+                        <?php if (!empty(session()->getFlashdata('error'))) : ?>
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                <h4>Account not updated!</h4>
+                                </hr />
+                                <?php echo session()->getFlashdata('error'); ?>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
                             </div>
-                            <button type="submit" class="btn btn-primary mr-2">Submit</button>
-                        <?php endforeach; ?>
+                        <?php endif; ?>
+                        <button type="submit" class="btn btn-primary mr-2">Submit</button>
                     </form>
                 </div>
             </div>
@@ -60,3 +59,9 @@
 
     <?= $this->include('admin/layout/footer_comment') ?>
     <?= $this->include('admin/layout/footer') ?>
+
+    <?php if (!empty(session()->getFlashdata('accUpdated'))) : ?>
+        <script>
+            accUpdated();
+        </script>
+    <?php endif; ?>

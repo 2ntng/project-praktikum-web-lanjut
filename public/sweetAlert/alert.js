@@ -9,11 +9,45 @@
 //     icon: 'error',
 //     title: 'Wrong Password!',
 //   })
-// }else if(flashData=="userRegistered"){
-//   Swal.fire({
-//     icon: 'success',
-//     title: 'User Registered!',
-//   })
+// }else
+
+function wrongPassword(){
+  Swal.fire({
+    title: 'Wrong Password!',
+    icon: 'error',
+    confirmButtonColor: '#3085d6',
+    confirmButtonText: 'OK'
+  })
+}
+function usernameNotFound(){
+  Swal.fire({
+    title: 'Username Not Found!',
+    icon: 'error',
+    confirmButtonColor: '#3085d6',
+    confirmButtonText: 'OK'
+  })
+}
+
+function accRegistered(){
+  Swal.fire({
+    title: 'Account Registered',
+    icon: 'success',
+    confirmButtonColor: '#3085d6',
+    confirmButtonText: 'OK'
+  }).then((result) => {
+    if (result.isConfirmed) {
+        document.location.href='/';
+    }
+  })
+}
+function accUpdated(){
+  Swal.fire({
+    title: 'Account Updated',
+    icon: 'success',
+    confirmButtonColor: '#3085d6',
+    confirmButtonText: 'OK'
+  })
+}
 // }else if(flashData=="userNotRegistered"){
 //   Swal.fire({
 //     icon: 'error',
@@ -27,7 +61,11 @@
 //     text: 'Berhasil' + flashData,
 //     type: 'success'
 //   })
-// }
+// }'
+
+
+
+
 function deleteProduct(id){
   Swal.fire({
     title: 'Are you sure to delete this product?',
