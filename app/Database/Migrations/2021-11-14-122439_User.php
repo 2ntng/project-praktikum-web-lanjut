@@ -63,6 +63,18 @@ class User extends Migration
 			'updated_at' => new Time('now')
 		];
 		$this->db->table('user')->insert($data);
+
+		// Insert User Data
+		$data = [
+			'username' => 'user',
+			'password' => password_hash('user', PASSWORD_DEFAULT),
+			'fullname' => 'Regular User',
+			'email' => 'user@gmail.com',
+			'role' => '1',
+			'created_at' => new Time('now'),
+			'updated_at' => new Time('now')
+		];
+		$this->db->table('user')->insert($data);
 	}
 
 	public function down()
