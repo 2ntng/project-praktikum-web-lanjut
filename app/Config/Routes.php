@@ -57,6 +57,9 @@ $routes->post('/product/save-edit/(:num)', 'ProductController::save_edit/$1', ['
 $routes->get('/product/delete/(:num)', 'ProductController::delete_product/$1', ['filter' => 'user']);
 $routes->get('/user/settings', 'User::settings', ['filter' => 'user']);
 $routes->post('/user/settings/save', 'User::save', ['filter' => 'user']);
+
+$routes->get('/home', 'Navigation::home');
+$routes->get('/product/detail', 'Navigation::product_detail');
 // End - hasil merge routes nopri, bintang ke raymond
 
 // $routes->get('/', 'Navigation::login');

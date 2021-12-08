@@ -9,6 +9,12 @@
                         </a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="/home">
+                            <i class="mdi mdi-home"></i>
+                            <span class="menu-title">Home</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="/product">
                             <i class="mdi mdi-package-variant-closed"></i>
                             <span class="menu-title"> My Product</span>

@@ -25,5 +25,15 @@ class Navigation extends BaseController
         return view('user/v_index');
     }
 
+    public function home()
+    {
+        return view('user/v_home');
+    }
+
+    public function product_detail()
+    {
+        return view('user/v_product_detail');
+    }
+
     
 }
