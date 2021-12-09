@@ -9,7 +9,7 @@ use App\Models\ProductCategoryModel;
 
 class Navigation extends BaseController
 {
-
+    protected $product;
     protected $userModel;
     protected $productModel;
     protected $productCategoryModel;
@@ -18,6 +18,10 @@ class Navigation extends BaseController
         $this->userModel = new UserModel();
         $this->productModel = new ProductModel();
         $this->productCategoryModel = new ProductCategoryModel();
+        $this->product = new ProductModel();
+        $this->categories = new ProductCategoryModel();
+        helper('number');
+        helper('form');
     }
 
     // Routes dari raymond
@@ -35,17 +39,22 @@ class Navigation extends BaseController
     {
         $data = [
             'product_category' => $this->productCategoryModel->findAll(),
-            'products' => $this->productModel->where('category_id',)->findAll()
+            'products' => $this->productModel->where('category_id',)->findAll(),
+            'product' => $this->product->findAll(),
+            'cart' => \Config\Services::cart(),
         ];
         return view('user/v_home', $data);
         // dd($data);
     }
 
-    public function product_detail()
+    public function product_detail($product_id)
     {
         $data = [
-            'product' => $this->productModel->findAll()
+            // 'product' => $this->productModel->findAll()
+            'product' => $this->product->find($product_id),
+            'categories' => $this->categories->findAll(),
+            'cart' => \Config\Services::cart(),
         ];
-        return view('user/v_product_detail');
+        return view('user/v_product_detail', $data);
     }
 }

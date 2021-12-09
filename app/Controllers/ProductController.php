@@ -19,21 +19,26 @@ class ProductController extends BaseController
     {
         $data = [
             'product' => $this->product->where('user_id', session()->get('user_id'))->findAll(),
-            'categories' => $this->categories->findAll()
+            'categories' => $this->categories->findAll(),
+            'cart'=>\Config\Services::cart(),
         ];
         return view('user/product/v_product', $data);
         // dd($data);
     }
     public function add_product()
     {
-        $data['categories'] = $this->categories->findAll();
+        $data = [
+            'categories' => $this->categories->findAll(),
+            'cart'=>\Config\Services::cart(),
+        ];
         return view('user/product/v_add', $data);
     }
     public function edit_product($product_id)
     {
         $data = [
             'product' => $this->product->find($product_id),
-            'categories' => $this->categories->findAll()
+            'categories' => $this->categories->findAll(),
+            'cart'=>\Config\Services::cart(),
         ];
         if ($data['product']['user_id'] != session()->get('user_id')) {
             return redirect()->to('/product');
