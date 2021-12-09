@@ -22,6 +22,7 @@ class ProductController extends BaseController
             'categories' => $this->categories->findAll()
         ];
         return view('user/product/v_product', $data);
+        // dd($data);
     }
     public function add_product()
     {
@@ -151,7 +152,7 @@ class ProductController extends BaseController
         return redirect()->to('/product');
     }
 
-    public function get_categories(){
-        
+    public function get_categories()
+    {
     }
 }

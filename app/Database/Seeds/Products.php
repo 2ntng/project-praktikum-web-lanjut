@@ -15,7 +15,7 @@ class Products extends Seeder
 
         for ($i = 0; $i < 10; $i++) {
             $data = [
-                'user_id' => '1',
+                'user_id' => '2',
                 'category_id' => static::faker()->numberBetween(1, 4),
                 'name' => $faker->productName,
                 'description' => static::faker()->text,
