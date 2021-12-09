@@ -25,6 +25,7 @@
                     </li>
                 </ul>
                 <?php
+                $cart = \Config\Services::cart();
                 $keranjang = $cart->contents();
                 $jml_item = 0;
                 foreach ($keranjang as $key => $value) {

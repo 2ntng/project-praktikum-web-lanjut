@@ -3,15 +3,15 @@
             <nav class="sidebar sidebar-offcanvas" id="sidebar">
                 <ul class="nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="/dashboard">
-                            <i class="mdi mdi-view-dashboard"></i>
-                            <span class="menu-title"> Dashboard</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="/home">
                             <i class="mdi mdi-home"></i>
                             <span class="menu-title">Home</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/dashboard">
+                            <i class="mdi mdi-view-dashboard"></i>
+                            <span class="menu-title"> Dashboard</span>
                         </a>
                     </li>
                     <li class="nav-item">

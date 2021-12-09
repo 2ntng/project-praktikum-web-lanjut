@@ -1,6 +1,10 @@
 <?= $this->include('user/layout/header') ?>
 <?= $this->include('user/layout/navbar') ?>
 <?= $this->include('user/layout/sidebar') ?>
+<?php 
+use App\Models\ProductCategoryModel;
+$this->categories = new ProductCategoryModel();
+?>
 <div class="main-panel">
 <?php
     echo form_open('CartController/add');
@@ -34,6 +38,11 @@
                         <h2 class="my-3 mx-1"><?=number_to_currency($product['price'],'IDR')?></h2>
                         <table class="my-3 mx-1">
                             <tr>
+                                <th scope="row">Kategori</th>
+                                <td> : </td>
+                                <td><?= $this->categories->find($product['category_id'])['name'] ?></td>
+                            </tr>
+                            <!-- <tr>
                                 <th scope="row">Kondisi</th>
                                 <td> : </td>
                                 <td>Baru</td>
@@ -42,7 +51,7 @@
                                 <th scope="row">Berat</th>
                                 <td> : </td>
                                 <td>500 gram</td>
-                            </tr>
+                            </tr> -->
                         </table>
                         <hr>
                         <p class="font-weight-bolder mx-2">
