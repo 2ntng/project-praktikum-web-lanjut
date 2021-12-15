@@ -44,17 +44,19 @@
                                 <?php foreach ($keranjang as $key => $value):?>
                                     <a class="dropdown-item" href="#">
                                         <div class="row">
-                                            <div class="col-6">
+                                            <div class="col-8">
                                                 <h6 class="dropdown-item-title text-wrap mb-2">
                                                     <?= $value['name'] ?>
                                                     <p class="text-sm text-danger">jumlah = <?= $value['qty']; ?></p>
                                                 </h6>
                                             </div>
-                                            <div class="col-6">
+                                            <div class="col-4">
                                                 <p class="text-sm text-primary">Rp. <?= $value['subtotal']; ?>.00</p>
                                             </div>
                                         </div>
                                     </a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item d-flex flex-row-reverse" href="/user/cart">Check Out</a>
                                 <?php endforeach?>
                             <?php }?>
                         </div>

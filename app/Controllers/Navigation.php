@@ -23,8 +23,6 @@ class Navigation extends BaseController
         helper('number');
         helper('form');
     }
-
-    // Routes dari raymond
     public function template()
     {
         return view('user/v_template');
@@ -56,5 +54,15 @@ class Navigation extends BaseController
             'cart' => \Config\Services::cart(),
         ];
         return view('user/v_product_detail', $data);
+    }
+
+    public function cart_detail()
+    {
+        return view('user/v_cart_detail');
+    }
+
+    public function cart_checkout()
+    {
+        return view('user/v_checkout_detail');
     }
 }

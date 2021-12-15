@@ -57,6 +57,8 @@ $routes->post('/product/save-edit/(:num)', 'ProductController::save_edit/$1', ['
 $routes->get('/product/delete/(:num)', 'ProductController::delete_product/$1', ['filter' => 'user']);
 $routes->get('/user/settings', 'User::settings', ['filter' => 'user']);
 $routes->post('/user/settings/save', 'User::save', ['filter' => 'user']);
+$routes->get('/user/cart', 'Navigation::cart_detail');
+$routes->get('/user/cart/checkout', 'Navigation::cart_checkout');
 $routes->get('/newOrder', 'Order::new');
 $routes->get('/sendOrder', 'Order::send');
 $routes->get('/sentOrder', 'Order::sent');
