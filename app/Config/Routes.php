@@ -57,7 +57,10 @@ $routes->post('/product/save-edit/(:num)', 'ProductController::save_edit/$1', ['
 $routes->get('/product/delete/(:num)', 'ProductController::delete_product/$1', ['filter' => 'user']);
 $routes->get('/user/settings', 'User::settings', ['filter' => 'user']);
 $routes->post('/user/settings/save', 'User::save', ['filter' => 'user']);
-
+$routes->get('/newOrder', 'Order::new');
+$routes->get('/sendOrder', 'Order::send');
+$routes->get('/sentOrder', 'Order::sent');
+$routes->get('/finishOrder', 'Order::finish');
 $routes->get('/home', 'Navigation::home');
 $routes->get('/product/detail/(:num)', 'Navigation::product_detail/$1');
 // End - hasil merge routes nopri, bintang ke raymond
