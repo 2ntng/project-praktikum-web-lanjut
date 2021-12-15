@@ -38,4 +38,16 @@ class Order extends BaseController
     {
         return view('user/order/v_finishOrder');
     }
+    public function sendMyOrder()
+    {
+        return view('user/order/v_sendMyOrder');
+    }
+    public function sentMyOrder()
+    {
+        return view('user/order/v_sentMyOrder');
+    }
+    public function finishMyOrder()
+    {
+        return view('user/order/v_finishMyOrder');
+    }
 }

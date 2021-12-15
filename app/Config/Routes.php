@@ -61,6 +61,9 @@ $routes->get('/newOrder', 'Order::new');
 $routes->get('/sendOrder', 'Order::send');
 $routes->get('/sentOrder', 'Order::sent');
 $routes->get('/finishOrder', 'Order::finish');
+$routes->get('/sendMyOrder', 'Order::sendMyOrder');
+$routes->get('/sentMyOrder', 'Order::sentMyOrder');
+$routes->get('/finishMyOrder', 'Order::finishMyOrder');
 $routes->get('/home', 'Navigation::home');
 $routes->get('/product/detail/(:num)', 'Navigation::product_detail/$1');
 // End - hasil merge routes nopri, bintang ke raymond

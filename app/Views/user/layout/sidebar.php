@@ -20,11 +20,24 @@
                             <span class="menu-title"> My Product</span>
                         </a>
                     </li>
-
                     <li class="nav-item">
                         <a class="nav-link" data-toggle="collapse" href="#charts" aria-expanded="false" aria-controls="charts">
                             <i class="mdi mdi-view-list"></i>
-                            <span class="menu-title">Order</span>
+                            <span class="menu-title">My Order</span>
+                            <i class="menu-arrow"></i>
+                        </a>
+                        <div class="collapse" id="charts">
+                            <ul class="nav flex-column sub-menu">
+                                <li class="nav-item"> <a class="nav-link" href="/sendMyOrder">Ready to send</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="/sentMyOrder">Sending</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="/finishMyOrder">Finish Order</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="collapse" href="#charts" aria-expanded="false" aria-controls="charts">
+                            <i class="mdi mdi-view-list"></i>
+                            <span class="menu-title">My Order Shop</span>
                             <i class="menu-arrow"></i>
                         </a>
                         <div class="collapse" id="charts">
