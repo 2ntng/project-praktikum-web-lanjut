@@ -55,10 +55,10 @@
                                             </div>
                                         </div>
                                     </a>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item d-flex flex-row-reverse" href="/user/cart">Check Out</a>
                                 <?php endforeach?>
                             <?php }?>
+                            <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item d-flex flex-row-reverse" href="/user/cart">Check Out</a>
                         </div>
                     </li>
                     <li class="nav-item nav-profile dropdown">

@@ -15,53 +15,76 @@
         </div>
         <div class="row">
             <div class="col-md-8 grid-margin">
-                <div class="card mb-3">
-                    <div class="card-body pb-0">
-                        <p class="card-title">NAMA TOKO</p>
-                        <div class="row">
-                            <div class="col-2 pl-3 pr-0">
-                                <img class="img-fluid" src="<?= base_url('assets/images/product-placeholder.svg') ?>" alt="">
-                            </div>
-                            <div class="col-10 pl-3 pb-3">
-                                <p class="font-weight-500">JUDUL PRODUK KLO PRODUKNYA PANJANG BANGET SAMPE BAWAH BANGET DI CODINGAN HARUS ALT+Z</p>
-                                <h2>99.99$</h2>
-                                <div class="d-flex flex-row-reverse">
-                                    <div class="p-2">
-                                        <button type="submit" class="btn btn-danger btn-sm"><i class="ti-trash"></i> Delete</button>
+                <?php $i = 1;
+                $jumlah = 0;
+                $cart = \Config\Services::cart();
+                $keranjang = $cart->contents();
+                if($keranjang!=null){
+                foreach ($keranjang as $key => $value) {
+                    $jumlah = $jumlah + $value['qty'];
+                ?>
+                    <div class="card mb-3">
+                        <div class="card-body pb-0">
+                            <p class="card-title">NAMA TOKO</p>
+                            <div class="row">
+                                <div class="col-2 pl-3 pr-0">
+                                    <img class="img-fluid" src="<?= base_url('assets/images/product-placeholder.svg') ?>" alt="">
+                                </div>
+                                <div class="col-10 pl-3 pb-3">
+                                    <p class="font-weight-500"> <?= $value['name'] ?></p>
+                                    <h2>Rp. <?= $value['subtotal']; ?>.00</h2>
+                                    <p class="font-weight-500"> jumlah = <?= $value['qty'] ?></p>
+                                    <div class="d-flex flex-row-reverse">
+                                        <div class="p-2">
+                                            <a href="<?= base_url('/CartController/delete/' . $value['rowid']) ?>"><button type="submit" class="btn btn-danger btn-sm"><i class="ti-trash"></i> Delete</button></a>
+                                        </div>
                                     </div>
+
                                 </div>
                             </div>
                         </div>
+
                     </div>
-                </div>
-                <div class="card mb-3">
-                    <div class="card-body pb-0">
-                        <p class="card-title">NAMA TOKO</p>
-                        <div class="row">
-                            <div class="col-2 pl-3 pr-0">
-                                <img class="img-fluid" src="<?= base_url('assets/images/product-placeholder.svg') ?>" alt="">
-                            </div>
-                            <div class="col-10 pl-3 pb-3">
-                                <p class="font-weight-500">JUDUL PRODUK</p>
-                                <h2>99.99$</h2>
-                                <div class="d-flex flex-row-reverse">
-                                    <div class="p-2">
-                                        <button type="submit" class="btn btn-danger btn-sm"><i class="ti-trash"></i> Delete</button>
+                <?php
+                }
+            }else{
+                ?>
+                 <div class="row">
+            <div class="col-md-8 grid-margin">
+                    <div class="card mb-3">
+                        <div class="card-body pb-0">
+                          
+                            <div class="row">
+                                <div class="col-2 pl-3 pr-0">
+                                
+                                </div>
+                                <div class="col-10 pl-3 pb-3">
+                                    <p class="font-weight-500"> </p>
+                                    <h1>Keranjang Masih Kosong</h1>
+                                    <p class="font-weight-500"></p>
+                                    <div class="d-flex flex-row-reverse">
+                                        <div class="p-2">
+                                         
+                                        </div>
                                     </div>
+
                                 </div>
                             </div>
                         </div>
+
                     </div>
-                </div>
+                <?php
+            }
+                ?>
             </div>
             <div class="col-md-4 grid-margin">
                 <div class="card">
                     <div class="card-body">
                         <h4 class="my-3 mx-1">Total Harga</h4>
-                        <h2>99.99$</h2>
+                        <h2>Rp. <?= $cart->total(); ?>.00</h2>
                     </div>
                     <!-- <button type="submit" class="btn btn-success mx-3 mb-3"><i class="ti-shopping-cart"></i> Buy</button> -->
-                    <a href="/user/cart/checkout"class="btn btn-success mx-3 mb-3"><i class="ti-shopping-cart"></i> Buy</a>
+                    <a href="/user/cart/checkout" class="btn btn-success mx-3 mb-3"><i class="ti-shopping-cart"></i> Buy</a>
                 </div>
             </div>
         </div>

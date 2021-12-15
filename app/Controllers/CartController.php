@@ -30,4 +30,11 @@ class CartController extends BaseController
         $cart = \Config\Services::cart();
         $cart->destroy();
     }
+    public function delete($rowid)
+    {
+        $cart = \Config\Services::cart();
+        $cart->remove($rowid);
+        return redirect()->to(base_url('/user/cart'));
+        // dd($data);
+    }
 }
