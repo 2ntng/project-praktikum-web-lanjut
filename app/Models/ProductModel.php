@@ -9,7 +9,7 @@ class ProductModel extends Model
     protected $table                = 'product';
     protected $primaryKey           = 'product_id';
     protected $useAutoIncrement     = true;
-    protected $allowedFields        = ['user_id', 'category_id', 'name', 'description', 'price', 'stock', 'created_at', 'updated_at', 'deleted_at'];
+    protected $allowedFields        = ['user_id', 'category_id', 'name', 'description', 'price', 'stock','image', 'created_at', 'updated_at', 'deleted_at'];
     // protected $DBGroup              = 'default';
     // protected $table                = 'product';
     // protected $primaryKey           = 'product_id';

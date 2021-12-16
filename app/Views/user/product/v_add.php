@@ -79,6 +79,12 @@
                                 </div>
                             </div>
                             <div>
+                            <div class="form-group">
+                                    <label for="image">Image</label>
+                                    <input type="file" class="form-control" name="image" placeholder="Gambar" value="<?= old('gambar'); ?>">
+                                </div>
+                            </div>
+                            <div>
                                 <button type="submit" value="Simpan" class="btn btn-primary mr-2">Submit</button>
                                 <a href="/product"><button type="button" class="btn btn-outline-danger">Cancel</button></a>
                             </div>

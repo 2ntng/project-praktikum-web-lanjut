@@ -11,6 +11,7 @@ $this->categories = new ProductCategoryModel();
     echo form_hidden('id', $product['product_id']);
     echo form_hidden('price', $product['price']);
     echo form_hidden('name', $product['name']);
+    echo form_hidden('gambar', $product['image']);
     ?>
     <div class="content-wrapper">
         <div class="row">
@@ -26,7 +27,11 @@ $this->categories = new ProductCategoryModel();
             <div class="col-md-4 grid-margin">
                 <div class="card">
                     <div class="card-body">
-                        <img src="<?= base_url('assets/images/product-placeholder.svg') ?>" alt="">
+                        <?php if($product['image']!=NULL){?>
+                        <img src="<?= base_url('assets/images/'.$product['image']) ?>" alt="">
+                        <?php } else{?>
+                            <img src="<?= base_url('assets/images/product-placeholder.svg') ?>" alt="">
+                             <?php }?>
                     </div>
                 </div>
             </div>

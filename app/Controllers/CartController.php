@@ -23,7 +23,7 @@ class CartController extends BaseController
             'qty'     => $this->request->getVar('jumlah'),
             'price'   => $this->request->getPost('price'),
             'name'    => $this->request->getPost('name'),
-            'options' => array('gambar' => NULL, 'user_id' => session()->get('user_id'))
+            'options' => array('gambar' => $this->request->getPost('gambar'), 'user_id' => session()->get('user_id'))
          ];
         $cart->insert($data);
          return redirect()->to(base_url('/home'));
@@ -42,7 +42,7 @@ class CartController extends BaseController
     public function checkout()
     {
         $cart = \Config\Services::cart();
-        
+        $i=0;
         foreach ( $cart->contents() as $value) {
             $value2 = $this->product->where('product_id',$value['id'])->where('deleted_at',NULL)->findAll();
             if((int)$value2[0]['stock']- $value['qty']<0){
@@ -50,9 +50,10 @@ class CartController extends BaseController
                     'stock' => [
                         'rules' => 'required',
                         'errors' => [
-                            'required' => 'Stock Kosong'
+                            'required' => $value2[0]['name'].' stock sedang Kosong, Silahkan hubungin penjual!'
                         ]
                     ],
+                    
                 ])) {
                     session()->setFlashdata('error', $this->validator->listErrors());
                     return redirect()->back();

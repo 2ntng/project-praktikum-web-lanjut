@@ -43,6 +43,10 @@ class Product extends Migration
 				'constraint'		=> 64,
 				'unsigned'			=> true
 			],
+			'image'			=> [
+				'type'				=> 'VARCHAR',
+				'constraint'		=> 100
+			],
 			'created_at'			=> [
 				'type'				=> 'TIMESTAMP',
 				'null'				=> true

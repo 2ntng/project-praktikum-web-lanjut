@@ -22,7 +22,7 @@ class ProductController extends BaseController
         $data = [
             'product' => $this->product->where('user_id', session()->get('user_id'))->findAll(),
             'categories' => $this->categories->findAll(),
-            'cart'=> $this->cartdb->where('user_id', session()->get('user_id'))->findAll(),
+            
         ];
         return view('user/product/v_product', $data);
         // dd($data);
@@ -31,7 +31,7 @@ class ProductController extends BaseController
     {
         $data = [
             'categories' => $this->categories->findAll(),
-            'cart'=> $this->cartdb->where('user_id', session()->get('user_id'))->findAll(),
+            
         ];
         return view('user/product/v_add', $data);
     }
@@ -40,7 +40,7 @@ class ProductController extends BaseController
         $data = [
             'product' => $this->product->find($product_id),
             'categories' => $this->categories->findAll(),
-            'cart'=> $this->cartdb->where('user_id', session()->get('user_id'))->findAll(),
+            
         ];
         if ($data['product']['user_id'] != session()->get('user_id')) {
             return redirect()->to('/product');
@@ -89,11 +89,17 @@ class ProductController extends BaseController
                     'required' => 'Stock is required!'
                 ]
             ],
-
+            
 
         ])) {
             session()->setFlashdata('error', $this->validator->listErrors());
             return redirect()->back()->withInput();
+        }
+        $file = $this->request->getFile('image');
+        if($file->isValid() && ! $file->hasMoved())
+        {
+            $imageName = $file->getRandomName();
+            $file->move('assets/images',$imageName);
         }
         $data = [
             'name' => $this->request->getVar('name'),
@@ -101,7 +107,8 @@ class ProductController extends BaseController
             'user_id' => session()->get('user_id'),
             'category_id' => $this->request->getVar('category_id'),
             'price' => $this->request->getVar('price'),
-            'stock' => $this->request->getVar('stock')
+            'stock' => $this->request->getVar('stock'),
+            'image' => $imageName,
         ];
 
         $this->product->save($data);
@@ -147,13 +154,20 @@ class ProductController extends BaseController
             session()->setFlashdata('error', $this->validator->listErrors());
             return redirect()->back()->withInput();
         }
+        $file = $this->request->getFile('image');
+        if($file->isValid() && ! $file->hasMoved())
+        {
+            $imageName = $file->getRandomName();
+            $file->move('assets/images',$imageName);
+        }
         $this->product->update($product_id, [
             'name' => $this->request->getVar('name'),
             'description' => $this->request->getVar('description'),
             'user_id' => session()->get('user_id'),
             'category_id' => $this->request->getVar('category_id'),
             'price' => $this->request->getVar('price'),
-            'stock' => $this->request->getVar('stock')
+            'stock' => $this->request->getVar('stock'),
+            'image' => $imageName,
         ]);
         session()->setFlashdata('inputmsg', 'Diubah!');
         return redirect()->to('/product');
