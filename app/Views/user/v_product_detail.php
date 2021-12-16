@@ -79,7 +79,7 @@ $userModel = new UserModel();
                                 <h4 class="my-3 mx-1">In Stock.</h4>
                                 <input type="number" class="form-control" name="jumlah" placeholder="Quantity">
                                 <br>
-                                <button type="submit" class="btn btn-success"><i class="fa fa-shopping-basket"> <i class="ti-shopping-cart"></i> Add to cart</button>
+                                <button type="submit" class="btn btn-success"><i class="ti-shopping-cart"></i> Add to cart</button>
                             <?php } else {?>
                                 <h4 class="my-3 mx-1">Out of Stock.</h4>
                             <?php }?>
