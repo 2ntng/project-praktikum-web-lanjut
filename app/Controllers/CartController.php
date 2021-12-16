@@ -3,7 +3,6 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
-use App\Database\Migrations\Product;
 use App\Models\ProductModel;
 use App\Models\UserModel;
 use App\Models\CartItemsModel;

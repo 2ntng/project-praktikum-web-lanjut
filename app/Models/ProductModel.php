@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use CodeIgniter\Model;
+use App\Models\CartItemsModel;
 
 class ProductModel extends Model
 {

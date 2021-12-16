@@ -31,7 +31,8 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Dashboard::index', ['filter' => 'auth']);
+$routes->get('/', 'Navigation::index', ['filter' => 'auth']);
+$routes->get('/guest', 'Navigation::gHome');
 $routes->get('/login', 'Login::index');
 $routes->get('/logout', 'Login::logout');
 // $routes->post('/register/save', 'Register::save');
@@ -57,10 +58,10 @@ $routes->post('/product/save-edit/(:num)', 'ProductController::save_edit/$1', ['
 $routes->get('/product/delete/(:num)', 'ProductController::delete_product/$1', ['filter' => 'user']);
 $routes->get('/user/settings', 'User::settings', ['filter' => 'user']);
 $routes->post('/user/settings/save', 'User::save', ['filter' => 'user']);
-$routes->get('/user/cart', 'Navigation::cart_detail');
-$routes->get('/user/cart/delete/(:num)', 'CartController::delete/$1');
-$routes->get('/user/cart/checkout', 'Navigation::cart_checkout');
-$routes->get('/user/cart/checkout/selesai', 'CartController::checkout');
+$routes->get('/user/cart', 'Navigation::cart_detail', ['filter' => 'user']);
+$routes->get('/user/cart/delete/(:num)', 'CartController::delete/$1', ['filter' => 'user']);
+$routes->get('/user/cart/checkout', 'Navigation::cart_checkout', ['filter' => 'user']);
+$routes->get('/user/cart/checkout/selesai', 'CartController::checkout', ['filter' => 'user']);
 $routes->get('/newOrder', 'Order::new');
 $routes->get('/sendOrder', 'Order::send');
 $routes->get('/sentOrder', 'Order::sent');

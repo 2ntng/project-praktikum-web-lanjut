@@ -32,8 +32,13 @@ namespace CodeIgniter;
                 // $cart = $cart->contents();
                 if ($cart != null) {
                     foreach ($cart as $cartItem) {
-                        $product = $productModel->find($cartItem['product_id']);
-                        $subtotal = $subtotal + $cartItem['quantity'] * $product['price']; ?>
+                        if ($productModel->find($cartItem['product_id']) != NULL) {
+                            $product = $productModel->find($cartItem['product_id']);
+                            $subtotal = $subtotal + $cartItem['quantity'] * $product['price'];
+                        } else {
+                            $product = $productModel->withDeleted()->find($cartItem['product_id']);
+                            $deleted = true;
+                        } ?>
                             <div class="card mb-3">
                                 <div class="card-body pb-0">
                                     <div class="row">

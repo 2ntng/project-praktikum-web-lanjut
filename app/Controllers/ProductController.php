@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Models\ProductModel;
 use App\Models\ProductCategoryModel;
+use App\Models\CartItemsModel;
 
 class ProductController extends BaseController
 {
@@ -49,6 +50,11 @@ class ProductController extends BaseController
     {
         $data = $this->product->find($product_id);
         if ($data['user_id'] == session()->get('user_id')) {
+            $cartModel = new CartItemsModel();
+            $carts = $cartModel->where('product_id', $product_id)->findAll();
+            foreach ($carts as $cart) {
+                $cartModel->delete($cart);
+            }
             $this->product->delete($product_id);
         }
         return redirect()->to('/product');

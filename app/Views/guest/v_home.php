@@ -1,6 +1,6 @@
-<?= $this->include('user/layout/header') ?>
-<?= $this->include('user/layout/navbar') ?>
-<?= $this->include('user/layout/sidebar') ?>
+<?= $this->include('guest/layout/header') ?>
+<?= $this->include('guest/layout/navbar') ?>
+<?= $this->include('guest/layout/sidebar') ?>
 <?php
 
 use App\Models\ProductModel;
@@ -11,7 +11,7 @@ $this->product = new ProductModel();
 <div class="main-panel">
     <div class="content-wrapper">
         <?php foreach ($product_category as $cat) : ?>
-            <?php if ($this->product->where('category_id', $cat['category_id'])->where('user_id !=', session('user_id'))->findAll() != NULL) { ?>
+            <?php if ($this->product->where('category_id', $cat['category_id'])->findAll() != NULL) { ?>
                 <div class="row">
                     <h3 class="card-title"><?= $cat['name']; ?></h3>
                     <div class="col-md-12 grid-margin">

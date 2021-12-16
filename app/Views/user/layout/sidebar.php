@@ -49,12 +49,6 @@
                             </ul>
                         </div>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/template">
-                            <i class="mdi mdi-format-paint"></i>
-                            <span class="menu-title">Template</span>
-                        </a>
-                    </li>
                 </ul>
             </nav>
             <!-- partial -->

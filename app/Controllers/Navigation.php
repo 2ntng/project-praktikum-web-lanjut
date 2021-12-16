@@ -28,6 +28,12 @@ class Navigation extends BaseController
         return view('user/v_template');
     }
 
+    public function index()
+    {
+        return redirect()->to('/home');
+    }
+
+
     public function user()
     {
         return view('user/v_index');
@@ -39,9 +45,19 @@ class Navigation extends BaseController
             'product_category' => $this->productCategoryModel->findAll(),
             'products' => $this->productModel->where('user_id !=', session()->get('user_id'))->findAll(),
             'product' => $this->product->findAll(),
-            'cart' => \Config\Services::cart(),
         ];
         return view('user/v_home', $data);
+        // dd($data);
+    }
+
+    public function gHome()
+    {
+        $data = [
+            'product_category' => $this->productCategoryModel->findAll(),
+            'products' => $this->productModel->findAll(),
+            'product' => $this->product->findAll(),
+        ];
+        return view('guest/v_home', $data);
         // dd($data);
     }
 
@@ -53,7 +69,11 @@ class Navigation extends BaseController
             'categories' => $this->categories->findAll(),
             'cart' => \Config\Services::cart(),
         ];
-        return view('user/v_product_detail', $data);
+        if (session()->get('logged_in')) {
+            return view('user/v_product_detail', $data);
+        } else {
+            return view('guest/v_product_detail', $data);
+        }
     }
 
     public function cart_detail()
