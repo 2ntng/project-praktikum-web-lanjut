@@ -47,7 +47,7 @@
                                         <td>Rp. <?= $row['price']; ?></td>
                                         <td><?= $row['stock']; ?></td>
                                         <td>
-                                            <a href=""><button type="button" class="btn btn-icon btn-primary" title="Details"><i class="ti-info btn-icon-prepend"></i></button></a>
+                                            <a href="/product/detail/<?= $row['product_id'] ?>"><button type="button" class="btn btn-icon btn-primary" title="Details"><i class="ti-info btn-icon-prepend"></i></button></a>
                                             <a href="/product/edit/<?= $row['product_id'] ?>"><button type="button" class="btn btn-icon btn-warning" title="Edit"><i class="ti-pencil btn-icon-prepend"></i></button></a>
                                             <button type="button" class="btn btn-icon btn-danger" onclick="deleteProduct(<?= $row['product_id'] ?>)" title="Delete"><i class="ti-trash btn-icon-prepend"></i></button>
                                         </td>

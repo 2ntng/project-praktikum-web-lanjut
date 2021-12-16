@@ -37,7 +37,7 @@ class Navigation extends BaseController
     {
         $data = [
             'product_category' => $this->productCategoryModel->findAll(),
-            'products' => $this->productModel->findAll(),
+            'products' => $this->productModel->where('user_id !=', session()->get('user_id'))->findAll(),
             'product' => $this->product->findAll(),
             'cart' => \Config\Services::cart(),
         ];

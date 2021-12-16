@@ -39,13 +39,13 @@
                     <div class="container mt-3">
                         <div class="card mb-3">
                             <div class="card-body pb-0">
-                                <p><b>Nama Toko</b></p>
+                                <!-- <p><b>Nama Toko</b></p> -->
                                 <div class="row">
                                     <div class="col-1 pl-3 pr-0">
                                         <?php if ($value['options']['gambar'] != NULL) { ?>
-                                            <img src="<?= base_url('assets/images/' . $value['options']['gambar']) ?>" width="70" height="70" alt="">
+                                            <img class="img-fluid" src="<?= base_url('assets/images/' . $value['options']['gambar']) ?>" width="70" height="70" alt="">
                                         <?php } else { ?>
-                                            <img src="<?= base_url('assets/images/product-placeholder.svg') ?>" alt="">
+                                            <img class="img-fluid" src="<?= base_url('assets/images/product-placeholder.svg') ?>" alt="">
                                         <?php } ?>
                                     </div>
                                     <div class="col-10 pl-3 pb-3">

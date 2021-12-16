@@ -28,7 +28,7 @@ $this->categories = new ProductCategoryModel();
                 <div class="card">
                     <div class="card-body">
                         <?php if($product['image']!=NULL){?>
-                        <img src="<?= base_url('assets/images/'.$product['image']) ?>" alt="">
+                        <img class="img-fluid" src="<?= base_url('assets/images/'.$product['image']) ?>" alt="">
                         <?php } else{?>
                             <img src="<?= base_url('assets/images/product-placeholder.svg') ?>" alt="">
                              <?php }?>
@@ -73,17 +73,28 @@ $this->categories = new ProductCategoryModel();
                     </div>
                 </div>
             </div>
-            <div class="col-md-3 grid-margin">
-                <div class="card">
-                    <div class="card-body">
-                        <h4 class="my-3 mx-1">Atur Jumlah</h4>
-                        <input type="number" class="form-control" name="jumlah" placeholder="Jumlah">
-                        <br>
-                        <button type="submit" class="btn btn-success"><i class="fa fa-shopping-basket"> <i class="ti-shopping-cart"></i> Add to cart</button>
+            <?php if ($product['user_id'] != session()->get('user_id')) { ?>
+                <div class="col-md-3 grid-margin">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="my-3 mx-1">Atur Jumlah</h4>
+                            <input type="number" class="form-control" name="jumlah" placeholder="Jumlah">
+                            <br>
+                            <button type="submit" class="btn btn-success"><i class="fa fa-shopping-basket"> <i class="ti-shopping-cart"></i> Add to cart</button>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <?php echo form_close(); ?>
+            <?php } else { ?>
+                <div class="col-md-3 grid-margin">
+                    <div class="card">
+                        <div class="card-body" align="center">
+                            <a href="/product/edit/<?= $product['product_id'] ?>"><button type="button" class="btn btn-warning" title="Edit"><i class="ti-pencil"></i>Edit Product</button></a><br><br>
+                            <button type="button" class="btn btn-danger" onclick="deleteProduct(<?= $product['product_id'] ?>)" title="Delete"><i class="ti-trash"></i>Delete Product</button>
+                        </div>
+                    </div>
+                </div>
+            <?php }
+            echo form_close(); ?>
         </div>
     </div>
     <!-- content-wrapper ends -->

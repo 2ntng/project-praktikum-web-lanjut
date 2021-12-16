@@ -14,7 +14,7 @@ class Admin extends BaseController
         $this->user = new UserModel();
     }
 
-    public function settings($id)
+    public function settings()
     {
         helper(['form']);
         $data = $this->user->find(session()->get('user_id'));

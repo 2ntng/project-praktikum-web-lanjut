@@ -19,13 +19,13 @@ class ProductController extends BaseController
     }
     public function product()
     {
+        // dd(session());
         $data = [
             'product' => $this->product->where('user_id', session()->get('user_id'))->findAll(),
             'categories' => $this->categories->findAll(),
-            
         ];
-        return view('user/product/v_product', $data);
         // dd($data);
+        return view('user/product/v_product', $data);
     }
     public function add_product()
     {
@@ -159,6 +159,8 @@ class ProductController extends BaseController
         {
             $imageName = $file->getRandomName();
             $file->move('assets/images',$imageName);
+        } else {
+            $imageName = $this->product->find($product_id)['image'];
         }
         $this->product->update($product_id, [
             'name' => $this->request->getVar('name'),

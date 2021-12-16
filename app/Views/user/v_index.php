@@ -4,7 +4,8 @@
 <?php
 use App\Models\UserModel;
 $this->user = new UserModel();
-$session = session(); ?>            
+$session = session();
+// dd(session()); ?>            
             <div class="main-panel">
                 <div class="content-wrapper">
                     <div class="row">

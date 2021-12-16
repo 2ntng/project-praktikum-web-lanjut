@@ -33,33 +33,33 @@
                 }
                 ?>
                 <ul class="navbar-nav navbar-nav-right">
-                    <li class="nav-item nav-profile dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="cartDropdown">
-                            <i class="ti-shopping-cart"></i>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="cartDropdown">
-                        <?php if(empty($keranjang)){?>
-                                <a class="dropdown-item" href="#">Keranjang Kosong</a>
-                            <?php }else{?>
-                                <?php foreach ($keranjang as $key => $value):?>
-                                    <a class="dropdown-item" href="#">
+                    <a class="nav-link" href="/user/cart">
+                        <button class="btn"><i class="ti-shopping-cart"></i><span class="badge badge-pill badge-danger"><?= $jml_item ?></span></button>    
+                    </a>
+                    <!-- <li class="nav-item nav-profile dropdown"> -->
+                        <!-- <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="cartDropdown"> -->
+                        <!-- <php if(empty($keranjang)){?> -->
+                                <!-- <a class="dropdown-item" href="#">Keranjang Kosong</a> -->
+                            <!-- <php }else{?> -->
+                                <!-- <php foreach ($keranjang as $key => $value):?> -->
+                                    <!-- <a class="dropdown-item" href="#">
                                         <div class="row">
                                             <div class="col-8">
-                                                <h6 class="dropdown-item-title text-wrap mb-2">
-                                                    <?= $value['name'] ?>
-                                                    <p class="text-sm text-danger">jumlah = <?= $value['qty']; ?></p>
+                                                <h6 class="dropdown-item-title text-wrap mb-2"> -->
+                                                    <!-- <= $value['name'] ?> -->
+                                                    <!-- <p class="text-sm text-danger">jumlah = <= $value['qty']; ?></p>
                                                 </h6>
                                             </div>
                                             <div class="col-4">
-                                                <p class="text-sm text-primary">Rp. <?= $value['subtotal']; ?>.00</p>
+                                                <p class="text-sm text-primary">Rp. <= $value['subtotal']; ?>.00</p>
                                             </div>
                                         </div>
-                                    </a>
-                                <?php endforeach?>
-                            <?php }?>
-                            <div class="dropdown-divider"></div>
+                                    </a> -->
+                                <!-- <php endforeach?> -->
+                            <!-- <php } ?> -->
+                            <!-- <div class="dropdown-divider"></div>
                                     <a class="dropdown-item d-flex flex-row-reverse" href="/user/cart">Check Out</a>
-                        </div>
+                        </div> -->
                     </li>
                     <li class="nav-item nav-profile dropdown">
                         <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">

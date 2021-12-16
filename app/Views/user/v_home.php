@@ -20,7 +20,7 @@ $this->product = new ProductModel();
                                 <a class="mx-3" href="/product/detail/<?= $prod['product_id'] ?>">
                                     <div class="card" style="width: 10rem;">
                                         <?php if ($prod['image'] != NULL) { ?>
-                                            <img src="<?= base_url('assets/images/' . $prod['image']) ?>" alt="">
+                                            <img class="img-fluid" src="<?= base_url('assets/images/' . $prod['image']) ?>" alt="">
                                         <?php } else { ?>
                                             <img src="<?= base_url('assets/images/product-placeholder.svg') ?>" alt="">
                                         <?php } ?>
