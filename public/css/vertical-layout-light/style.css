@@ -10296,7 +10296,7 @@ pre code {
 .jsgrid .jsgrid-table th,
 .table td,
 .jsgrid .jsgrid-table td {
-    padding: 1.125rem 1.375rem;
+    padding: 1rem 1.375rem;
     vertical-align: top;
     border-top: 1px solid #CED4DA;
 }
@@ -10314,7 +10314,7 @@ pre code {
 
 .table-sm th,
 .table-sm td {
-    padding: 0.3rem;
+    padding: 0.1rem;
 }
 
 .table-bordered {
@@ -12299,7 +12299,7 @@ input[type="button"].btn-block {
     z-index: 1000;
     display: none;
     float: left;
-    min-width: 20rem;
+    min-width: 10rem;
     padding: 0.5rem 0;
     margin: 0.125rem 0 0;
     font-size: 1rem;

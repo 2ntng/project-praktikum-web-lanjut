@@ -34,8 +34,8 @@
                 }
                 ?>
                 <ul class="navbar-nav navbar-nav-right">
-                    <a class="nav-link" href="/user/cart">
-                        <button class="btn"><i class="ti-shopping-cart"></i><span class="badge badge-pill badge-danger"><?= $jml_item ?></span></button>    
+                    <a class="nav-link <?= ($jml_item==0)?"disabled":" ";?>" href="/user/cart">
+                        <button class="btn"><i class="ti-shopping-cart "></i><span class="badge badge-pill badge-danger"><?= $jml_item ?></span></button>    
                     </a>
                     <!-- <li class="nav-item nav-profile dropdown"> -->
                         <!-- <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="cartDropdown"> -->

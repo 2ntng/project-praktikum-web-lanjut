@@ -27,12 +27,12 @@
                         <table class="table table-hover table-bordered" id="table1">
                             <thead>
                                 <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">Name</th>
-                                    <th scope="col">Category</th>
-                                    <th scope="col">Price</th>
-                                    <th scope="col">Stock</th>
-                                    <th scope="col">Action</th>
+                                    <th class="text-center" scope="col">#</th>
+                                    <th class="text-center" scope="col">Name</th>
+                                    <th class="text-center" scope="col">Category</th>
+                                    <th class="text-center" scope="col">Price</th>
+                                    <th class="text-center" scope="col">Stock</th>
+                                    <th class="text-center" scope="col">Action</th>
 
                             </thead>
                             <tbody>
@@ -42,11 +42,11 @@
                                         <th scope="row">
                                             <p><?= $no++; ?></p>
                                         </th>
-                                        <td><?= $row['name']; ?></td>
-                                        <td><?= $categories[$row['category_id']-1]['name']; ?></td>
-                                        <td>Rp. <?= $row['price']; ?></td>
-                                        <td><?= $row['stock']; ?></td>
-                                        <td>
+                                        <td class="text-center"><?= $row['name']; ?></td>
+                                        <td class="text-center"><?= $categories[$row['category_id']-1]['name']; ?></td>
+                                        <td class="text-center">Rp. <?= $row['price']; ?></td>
+                                        <td class="text-center"><?= $row['stock']; ?></td>
+                                        <td class="text-center">
                                             <a href="/product/detail/<?= $row['product_id'] ?>"><button type="button" class="btn btn-icon btn-primary" title="Details"><i class="ti-info btn-icon-prepend"></i></button></a>
                                             <a href="/product/edit/<?= $row['product_id'] ?>"><button type="button" class="btn btn-icon btn-warning" title="Edit"><i class="ti-pencil btn-icon-prepend"></i></button></a>
                                             <button type="button" class="btn btn-icon btn-danger" onclick="deleteProduct(<?= $row['product_id'] ?>)" title="Delete"><i class="ti-trash btn-icon-prepend"></i></button>
