@@ -43,7 +43,7 @@
                                 <div class="row">
                                     <div class="col-1 pl-3 pr-0">
                                         <?php if ($value['options']['gambar'] != NULL) { ?>
-                                            <img class="img-fluid" src="<?= base_url('assets/images/' . $value['options']['gambar']) ?>" width="70" height="70" alt="">
+                                            <img class="img-fluid" src="<?= base_url('assets/images/uploads/' . $value['options']['gambar']) ?>" width="70" height="70" alt="">
                                         <?php } else { ?>
                                             <img class="img-fluid" src="<?= base_url('assets/images/product-placeholder.svg') ?>" alt="">
                                         <?php } ?>

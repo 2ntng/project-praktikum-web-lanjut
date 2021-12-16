@@ -5,37 +5,48 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Database\Migrations\Product;
 use App\Models\ProductModel;
+use App\Models\UserModel;
+use App\Models\CartItemsModel;
 
 class CartController extends BaseController
 {
     public function __construct()
     {
         $this->product = new ProductModel();
+        $this->user = new UserModel();
+        $this->cartItems = new CartItemsModel();
         helper('number');
         helper('form');
     }
    
     public function add()
     {
-        $cart = \Config\Services::cart();
-        $data=[
-            'id'      => $this->request->getPost('id'),
-            'qty'     => $this->request->getVar('jumlah'),
-            'price'   => $this->request->getPost('price'),
-            'name'    => $this->request->getPost('name'),
-            'options' => array('gambar' => $this->request->getPost('gambar'), 'user_id' => session()->get('user_id'))
-         ];
-        $cart->insert($data);
-         return redirect()->to(base_url('/home'));
+        $productId = $this->request->getPost('id');
+        $product = $this->product->find($productId);
+        $itemOfProduct = $this->cartItems->where('product_id', $productId)->first();
+        if ($itemOfProduct == NULL) {
+            $data=[
+                'user_id'      => session()->get('user_id'),
+                'product_id'   => $this->request->getPost('id'),
+                'quantity'     => $this->request->getVar('jumlah')
+            ];
+            $this->cartItems->save($data);
+        } else{
+            $data=[
+                'quantity'     => $itemOfProduct['quantity'] + $this->request->getVar('jumlah')
+            ];
+            $id = $this->cartItems->where('product_id', $productId)->first()['cart_item_id'];
+            $this->cartItems->update($id, $data);
+        }
+        return redirect()->to(base_url('/user/cart'));
     }
     public function clear(){
         $cart = \Config\Services::cart();
         $cart->destroy();
     }
-    public function delete($rowid)
+    public function delete($id)
     {
-        $cart = \Config\Services::cart();
-        $cart->remove($rowid);
+        $this->cartItems->delete($id);
         return redirect()->to(base_url('/user/cart'));
         // dd($data);
     }

@@ -25,11 +25,12 @@
                     </li>
                 </ul>
                 <?php
-                $cart = \Config\Services::cart();
-                $keranjang = $cart->contents();
+                use App\Models\CartItemsModel;
+                $cartModel = new CartItemsModel();
+                $cart = $cartModel->where('user_id', session()->get('user_id'))->findAll();
                 $jml_item = 0;
-                foreach ($keranjang as $key => $value) {
-                    $jml_item = $jml_item + $value['qty'];
+                foreach ($cart as $cartItem) {
+                    $jml_item = $jml_item + $cartItem['quantity'];
                 }
                 ?>
                 <ul class="navbar-nav navbar-nav-right">

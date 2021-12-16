@@ -5,7 +5,6 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Models\ProductModel;
 use App\Models\ProductCategoryModel;
-use App\Models\CartdetailsModel;
 
 class ProductController extends BaseController
 {
@@ -15,7 +14,6 @@ class ProductController extends BaseController
     {
         $this->product = new ProductModel();
         $this->categories = new ProductCategoryModel();
-        $this->cartdb = new CartdetailsModel();
     }
     public function product()
     {
@@ -99,7 +97,7 @@ class ProductController extends BaseController
         if($file->isValid() && ! $file->hasMoved())
         {
             $imageName = $file->getRandomName();
-            $file->move('assets/images',$imageName);
+            $file->move('assets/images/uploads/',$imageName);
         }
         $data = [
             'name' => $this->request->getVar('name'),
@@ -158,7 +156,7 @@ class ProductController extends BaseController
         if($file->isValid() && ! $file->hasMoved())
         {
             $imageName = $file->getRandomName();
-            $file->move('assets/images',$imageName);
+            $file->move('assets/images/uploads/',$imageName);
         } else {
             $imageName = $this->product->find($product_id)['image'];
         }

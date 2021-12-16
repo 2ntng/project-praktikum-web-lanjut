@@ -5,7 +5,6 @@ namespace App\Controllers;
 use CodeIgniter\Controller;
 use App\Models\ProductModel;
 use App\Models\UserModel;
-use App\Models\CartdetailsModel;
 use PDO;
 
 class Dashboard extends Controller
@@ -14,7 +13,6 @@ class Dashboard extends Controller
     {
         $this->product = new ProductModel();
         $this->user = new UserModel();
-        $this->cartdb = new CartdetailsModel();
     }
     public function index()
     {
@@ -31,7 +29,7 @@ class Dashboard extends Controller
             return view('user/v_index',[
                 'jumlahProduct' => $this->product->where('user_id', session()->get('user_id'))->countAllResults(),
                 'stockProduct'=> $stockProduct,
-                'cart'=> $this->cartdb->where('user_id', session()->get('user_id'))->findAll(),
+                // 'cart'=> $this->cartdb->where('user_id', session()->get('user_id'))->findAll(),
             ]);
         }
     }

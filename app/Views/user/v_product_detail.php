@@ -3,7 +3,9 @@
 <?= $this->include('user/layout/sidebar') ?>
 <?php 
 use App\Models\ProductCategoryModel;
+use App\Models\UserModel;
 $this->categories = new ProductCategoryModel();
+$userModel = new UserModel();
 ?>
 <div class="main-panel">
 <?php
@@ -19,6 +21,7 @@ $this->categories = new ProductCategoryModel();
                 <div class="row">
                     <div class="col-12 col-xl-8 mb-4 mb-xl-0">
                         <h3 class="font-weight-bold"><?= $product['name']; ?></h3>
+                        <h5>Seller : <b><?= $userModel->find($product['user_id'])['fullname'] ?></b></h5>
                     </div>
                 </div>
             </div>
@@ -28,7 +31,7 @@ $this->categories = new ProductCategoryModel();
                 <div class="card">
                     <div class="card-body">
                         <?php if($product['image']!=NULL){?>
-                        <img class="img-fluid" src="<?= base_url('assets/images/'.$product['image']) ?>" alt="">
+                        <img class="img-fluid" src="<?= base_url('assets/images/uploads/'.$product['image']) ?>" alt="">
                         <?php } else{?>
                             <img src="<?= base_url('assets/images/product-placeholder.svg') ?>" alt="">
                              <?php }?>
@@ -43,7 +46,7 @@ $this->categories = new ProductCategoryModel();
                         <h2 class="my-3 mx-1"><?=number_to_currency($product['price'],'IDR')?></h2>
                         <table class="my-3 mx-1">
                             <tr>
-                                <th scope="row">Kategori</th>
+                                <th scope="row">Category</th>
                                 <td> : </td>
                                 <td><?= $this->categories->find($product['category_id'])['name'] ?></td>
                             </tr>
@@ -51,16 +54,11 @@ $this->categories = new ProductCategoryModel();
                                 <th scope="row">Kondisi</th>
                                 <td> : </td>
                                 <td>Baru</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Berat</th>
-                                <td> : </td>
-                                <td>500 gram</td>
                             </tr> -->
                         </table>
                         <hr>
                         <p class="font-weight-bolder mx-2">
-                            Deskripsi
+                            Description
                         </p>
                         <p class="font-weight-500 mx-2">
                         <?= $product['description']; ?>
@@ -77,10 +75,14 @@ $this->categories = new ProductCategoryModel();
                 <div class="col-md-3 grid-margin">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="my-3 mx-1">Atur Jumlah</h4>
-                            <input type="number" class="form-control" name="jumlah" placeholder="Jumlah">
-                            <br>
-                            <button type="submit" class="btn btn-success"><i class="fa fa-shopping-basket"> <i class="ti-shopping-cart"></i> Add to cart</button>
+                            <?php if ($product['stock'] > 0) { ?>
+                                <h4 class="my-3 mx-1">In Stock.</h4>
+                                <input type="number" class="form-control" name="jumlah" placeholder="Quantity">
+                                <br>
+                                <button type="submit" class="btn btn-success"><i class="fa fa-shopping-basket"> <i class="ti-shopping-cart"></i> Add to cart</button>
+                            <?php } else {?>
+                                <h4 class="my-3 mx-1">Out of Stock.</h4>
+                            <?php }?>
                         </div>
                     </div>
                 </div>

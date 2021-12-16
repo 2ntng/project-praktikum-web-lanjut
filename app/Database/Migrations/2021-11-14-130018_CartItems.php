@@ -10,18 +10,18 @@ class CartItems extends Migration
     {
       $this->forge->addField([
         'cart_item_id'				=> [
-          'type'				=> 'INT',
+          'type'				  => 'INT',
           'constraint'		=> 10,
           'unsigned'			=> true,
           'auto_increment'	=> true
         ],
-        'cart_id'				=> [
-          'type'				=> 'INT',
+        'user_id'				  => [
+          'type'				  => 'INT',
           'constraint'		=> 10,
           'unsigned'			=> true,
         ],
         'product_id'			=> [
-          'type'				=> 'INT',
+          'type'				  => 'INT',
           'constraint'		=> 10,
           'unsigned'			=> true,
         ],
