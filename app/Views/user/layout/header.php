@@ -9,5 +9,7 @@
     <link rel="stylesheet" href="<?= base_url('vendors/feather/feather.css') ?>">
     <link rel="stylesheet" href="<?= base_url('vendors/ti-icons/css/themify-icons.css') ?>">
     <link rel="stylesheet" href="<?= base_url('vendors/mdi/css/materialdesignicons.min.css') ?>">
+    <link rel="stylesheet" href="<?= base_url('vendors/font-awesome/css/font-awesome.min.css') ?>">
     <link rel="stylesheet" href="<?= base_url('css/vertical-layout-light/style.css') ?>">
+    
     <link rel="shortcut icon" href="<?= base_url('images/favicon.png') ?>" type="image/gif" />

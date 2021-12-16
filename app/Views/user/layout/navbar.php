@@ -13,7 +13,7 @@
                     <span class="icon-menu"></span>
                 </button>
                 <ul class="navbar-nav mr-lg-2">
-                    <li class="nav-item nav-search d-none d-lg-block">
+                    <!-- <li class="nav-item nav-search d-none d-lg-block">
                         <div class="input-group">
                             <div class="input-group-prepend hover-cursor" id="navbar-search-icon">
                                 <span class="input-group-text" id="search">
@@ -22,7 +22,7 @@
                             </div>
                             <input type="text" class="form-control" id="navbar-search-input" placeholder="Search now" aria-label="search" aria-describedby="search">
                         </div>
-                    </li>
+                    </li> -->
                 </ul>
                 <?php
                 use App\Models\CartItemsModel;
@@ -34,8 +34,8 @@
                 }
                 ?>
                 <ul class="navbar-nav navbar-nav-right">
-                    <a class="nav-link" href="/user/cart">
-                        <button class="btn"><i class="ti-shopping-cart"></i><span class="badge badge-pill badge-danger"><?= $jml_item ?></span></button>    
+                    <a class="nav-link <?= ($jml_item==0)?"disabled":" ";?>" href="/user/cart">
+                        <button class="btn"><i class="ti-shopping-cart "></i><span class="badge badge-pill badge-danger"><?= $jml_item ?></span></button>    
                     </a>
                     <!-- <li class="nav-item nav-profile dropdown"> -->
                         <!-- <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="cartDropdown"> -->

@@ -101,5 +101,5 @@ namespace CodeIgniter;
                     
 
                     <!-- content-wrapper ends -->
-                    <?= $this->include('user/layout/footer_comment') ?>
+                    
                     <?= $this->include('user/layout/footer') ?>
