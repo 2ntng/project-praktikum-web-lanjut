@@ -22,6 +22,7 @@
                 if($keranjang!=null){
                 foreach ($keranjang as $key => $value) {
                     $jumlah = $jumlah + $value['qty'];
+                    if($value['options']['user_id']==session()->get('user_id')){
                 ?>
                     <div class="card mb-3">
                         <div class="card-body pb-0">
@@ -31,9 +32,9 @@
                                     <img class="img-fluid" src="<?= base_url('assets/images/product-placeholder.svg') ?>" alt="">
                                 </div>
                                 <div class="col-10 pl-3 pb-3">
-                                    <p class="font-weight-500"> <?= $value['name'] ?></p>
+                                    <p class="font-weight-500"> <?= $value['name']; ?></p>
                                     <h2>Rp. <?= $value['subtotal']; ?>.00</h2>
-                                    <p class="font-weight-500"> jumlah = <?= $value['qty'] ?></p>
+                                    <p class="font-weight-500"> jumlah = <?= $value['qty']; ?></p>
                                     <div class="d-flex flex-row-reverse">
                                         <div class="p-2">
                                             <a href="<?= base_url('/CartController/delete/' . $value['rowid']) ?>"><button type="submit" class="btn btn-danger btn-sm"><i class="ti-trash"></i> Delete</button></a>
@@ -45,7 +46,8 @@
                         </div>
 
                     </div>
-                <?php
+                <?php    
+                    }
                 }
             }else{
                 ?>
@@ -84,7 +86,11 @@
                         <h2>Rp. <?= $cart->total(); ?>.00</h2>
                     </div>
                     <!-- <button type="submit" class="btn btn-success mx-3 mb-3"><i class="ti-shopping-cart"></i> Buy</button> -->
+                    <?php if($keranjang!=null) {?>
                     <a href="/user/cart/checkout" class="btn btn-success mx-3 mb-3"><i class="ti-shopping-cart"></i> Buy</a>
+                    <?php } else{?>
+                        <button class="btn btn-success mx-3 mb-3" disabled><i class="ti-shopping-cart"></i> Buy</button>
+                        <?php }?>
                 </div>
             </div>
         </div>

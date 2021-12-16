@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Models\ProductModel;
 use App\Models\ProductCategoryModel;
+use App\Models\CartdetailsModel;
 
 class ProductController extends BaseController
 {
@@ -14,13 +15,14 @@ class ProductController extends BaseController
     {
         $this->product = new ProductModel();
         $this->categories = new ProductCategoryModel();
+        $this->cartdb = new CartdetailsModel();
     }
     public function product()
     {
         $data = [
             'product' => $this->product->where('user_id', session()->get('user_id'))->findAll(),
             'categories' => $this->categories->findAll(),
-            'cart'=>\Config\Services::cart(),
+            'cart'=> $this->cartdb->where('user_id', session()->get('user_id'))->findAll(),
         ];
         return view('user/product/v_product', $data);
         // dd($data);
@@ -29,7 +31,7 @@ class ProductController extends BaseController
     {
         $data = [
             'categories' => $this->categories->findAll(),
-            'cart'=>\Config\Services::cart(),
+            'cart'=> $this->cartdb->where('user_id', session()->get('user_id'))->findAll(),
         ];
         return view('user/product/v_add', $data);
     }
@@ -38,7 +40,7 @@ class ProductController extends BaseController
         $data = [
             'product' => $this->product->find($product_id),
             'categories' => $this->categories->findAll(),
-            'cart'=>\Config\Services::cart(),
+            'cart'=> $this->cartdb->where('user_id', session()->get('user_id'))->findAll(),
         ];
         if ($data['product']['user_id'] != session()->get('user_id')) {
             return redirect()->to('/product');
